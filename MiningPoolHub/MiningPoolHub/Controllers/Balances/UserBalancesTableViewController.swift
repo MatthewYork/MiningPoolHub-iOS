@@ -35,13 +35,14 @@ class UserBalancesTableViewController: UITableViewController {
     }
     
     func registerCells() {
-        
+        tableView.register(UINib(nibName: "BalanceTableViewCell", bundle: nil), forCellReuseIdentifier: "BalanceTableViewCell")
     }
     
     func setupTable() {
         tableView.separatorInset = UIEdgeInsets(top: 0, left: UIScreen.main.bounds.width, bottom: 0, right: 0)
         
         //Refresh control
+        tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(loadData), for: UIControlEvents.valueChanged)
     }
 
@@ -57,18 +58,23 @@ class UserBalancesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return userBalances?.balances.data.count ?? 0
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-        cell.textLabel?.text = userBalances?.balances.data[indexPath.row].coin ?? "N/A"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BalanceTableViewCell", for: indexPath) as! BalanceTableViewCell
+        if let balance = userBalances?.balances.data[indexPath.row] {cell.setSelected(balance: balance)}
         
         return cell
+    }
+    
+    func sortBalances() {
+        if let balances = userBalances?.balances.data {
+            userBalances?.balances.data = balances.sorted(by: {b1, b2 in
+                return b1.coin < b2.coin
+            })
+        }
     }
 }
 
@@ -76,6 +82,7 @@ extension UserBalancesTableViewController {
     @objc func loadData() {
         let _ = provider.getUserAllBalances(completion: { (response: MphUserBalancesResponse) in
             self.userBalances = response
+            self.sortBalances()
             self.tableView.reloadData()
             self.tableView.refreshControl?.endRefreshing()
             

@@ -17,6 +17,8 @@
 		F00D68711FEA1480003C80C2 /* ContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00D68701FEA1480003C80C2 /* ContentType.swift */; };
 		F00D68731FEA148C003C80C2 /* Normalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00D68721FEA148C003C80C2 /* Normalization.swift */; };
 		F00D68761FEA31EB003C80C2 /* UserBalancesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00D68751FEA31EB003C80C2 /* UserBalancesTableViewController.swift */; };
+		F00D687A1FEA3596003C80C2 /* BalanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00D68781FEA3596003C80C2 /* BalanceTableViewCell.swift */; };
+		F00D687B1FEA3596003C80C2 /* BalanceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F00D68791FEA3596003C80C2 /* BalanceTableViewCell.xib */; };
 		F0D1F6321FE8AFC400C346B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D1F6311FE8AFC400C346B4 /* AppDelegate.swift */; };
 		F0D1F6391FE8AFC400C346B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0D1F6381FE8AFC400C346B4 /* Assets.xcassets */; };
 		F0D1F63C1FE8AFC400C346B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0D1F63A1FE8AFC400C346B4 /* LaunchScreen.storyboard */; };
@@ -60,6 +62,8 @@
 		F00D68701FEA1480003C80C2 /* ContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentType.swift; sourceTree = "<group>"; };
 		F00D68721FEA148C003C80C2 /* Normalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Normalization.swift; sourceTree = "<group>"; };
 		F00D68751FEA31EB003C80C2 /* UserBalancesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBalancesTableViewController.swift; sourceTree = "<group>"; };
+		F00D68781FEA3596003C80C2 /* BalanceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceTableViewCell.swift; sourceTree = "<group>"; };
+		F00D68791FEA3596003C80C2 /* BalanceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BalanceTableViewCell.xib; sourceTree = "<group>"; };
 		F0D1F62E1FE8AFC400C346B4 /* MiningPoolHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiningPoolHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0D1F6311FE8AFC400C346B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0D1F6381FE8AFC400C346B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -154,6 +158,7 @@
 		F00D685B1FE9FE9F003C80C2 /* UITableviewCells */ = {
 			isa = PBXGroup;
 			children = (
+				F00D68771FEA3581003C80C2 /* Balance */,
 				F00D68631FEA03D6003C80C2 /* ProfitStatistics */,
 			);
 			path = UITableviewCells;
@@ -214,6 +219,15 @@
 				F00D68751FEA31EB003C80C2 /* UserBalancesTableViewController.swift */,
 			);
 			path = Balances;
+			sourceTree = "<group>";
+		};
+		F00D68771FEA3581003C80C2 /* Balance */ = {
+			isa = PBXGroup;
+			children = (
+				F00D68781FEA3596003C80C2 /* BalanceTableViewCell.swift */,
+				F00D68791FEA3596003C80C2 /* BalanceTableViewCell.xib */,
+			);
+			path = Balance;
 			sourceTree = "<group>";
 		};
 		F0D1F6251FE8AFC400C346B4 = {
@@ -389,6 +403,7 @@
 				F00D68671FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.xib in Resources */,
 				F0D1F63C1FE8AFC400C346B4 /* LaunchScreen.storyboard in Resources */,
 				F00D686E1FEA11DC003C80C2 /* ProfitStatisticsViewController.xib in Resources */,
+				F00D687B1FEA3596003C80C2 /* BalanceTableViewCell.xib in Resources */,
 				F0D1F6391FE8AFC400C346B4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -576,6 +591,7 @@
 				F00D68691FEA0A8D003C80C2 /* ProfitStatisticsViewController.swift in Sources */,
 				F0D1F6321FE8AFC400C346B4 /* AppDelegate.swift in Sources */,
 				F00D68761FEA31EB003C80C2 /* UserBalancesTableViewController.swift in Sources */,
+				F00D687A1FEA3596003C80C2 /* BalanceTableViewCell.swift in Sources */,
 				F00D68731FEA148C003C80C2 /* Normalization.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
