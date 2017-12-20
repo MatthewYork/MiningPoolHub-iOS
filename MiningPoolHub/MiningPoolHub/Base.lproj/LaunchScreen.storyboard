@@ -40,6 +40,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="mph-logo" width="460" height="460"/>
+        <image name="mph-logo" width="1024" height="1024"/>
     </resources>
 </document>

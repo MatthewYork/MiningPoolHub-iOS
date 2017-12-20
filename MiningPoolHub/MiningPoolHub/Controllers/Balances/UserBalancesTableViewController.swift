@@ -67,7 +67,10 @@ class UserBalancesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if #available(iOS 11, *) { navigationController?.navigationBar.prefersLargeTitles = true}
+        if #available(iOS 11, *) {
+            navigationController?.navigationBar.prefersLargeTitles = true
+            extendedLayoutIncludesOpaqueBars = true
+        }
         registerCells()
         setupTable()
         addBarButtons()

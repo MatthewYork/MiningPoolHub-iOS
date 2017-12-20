@@ -48,8 +48,16 @@ class BalanceTableViewCell: UITableViewCell {
     }
     
     func setCurrencyLabels(balance: MphsWalletData, currency: MphsCurrency) {
-        let confirmed = String(format: "%.2f", balance.confirmed_value)
-        let last24Hours = String(format: "%.2f", balance.payout_last_24_value)
+        //Detect crypto format
+        var format = ""
+        switch currency {
+        case .btc, .ltc, .eth, .xmr : format = "%.7f"
+        default: format = "%.2f"
+        }
+        
+        //Create number strings
+        let confirmed = String(format: format, balance.confirmed_value)
+        let last24Hours = String(format: format, balance.payout_last_24_value)
         
         var denotation = ""; var before = true;
         switch currency {
