@@ -14,7 +14,7 @@ class BalanceTableViewCell: UITableViewCell {
     @IBOutlet weak var creditedLabel: UILabel!
     @IBOutlet weak var exchangeLabel: UILabel!
     @IBOutlet weak var hashRateLabel: UILabel!
-    @IBOutlet weak var totalCurrencyLabel: UILabel!
+    @IBOutlet weak var confirmedLabel: UILabel!
     @IBOutlet weak var feePercentageLabel: UILabel!
     @IBOutlet weak var last24hrsLabel: UILabel!
     
@@ -37,16 +37,19 @@ class BalanceTableViewCell: UITableViewCell {
         if balance.unconfirmed != 0 { credited += " ("+String(format: "%.8f", balance.unconfirmed)+")" }
         creditedLabel.text = credited
         
-        //Echange
+        //Echange, Hashrate
         exchangeLabel.text = String(format: "%.8f", balance.on_exchange)
+        hashRateLabel.text = String(format: "%.4f", balance.hashrate)
+        feePercentageLabel.text = String(format: "%.0f", balance.payout_fee_percent)+" %"
         
-        //Echange
-        hashRateLabel.text = String(format: "%.8f", balance.hashrate)
-        setCurrency(balance: balance, currency: currency)
+        
+        //Computed values
+        setCurrencyLabels(balance: balance, currency: currency)
     }
     
-    func setCurrency(balance: MphsWalletData, currency: MphsCurrency) {
-        let totalCurrency = String(format: "%.2f", balance.total_value)
+    func setCurrencyLabels(balance: MphsWalletData, currency: MphsCurrency) {
+        let confirmed = String(format: "%.2f", balance.confirmed_value)
+        let last24Hours = String(format: "%.2f", balance.payout_last_24_value)
         
         var denotation = ""; var before = true;
         switch currency {
@@ -59,6 +62,8 @@ class BalanceTableViewCell: UITableViewCell {
         case .xmr: denotation = "XMR"; before = false
         }
         
-        totalCurrencyLabel.text = before ? denotation+" "+totalCurrency : totalCurrency+" "+denotation
+        //Set currency labels
+        confirmedLabel.text = before ? denotation+" "+confirmed : confirmed+" "+denotation
+        last24hrsLabel.text = before ? denotation+" "+last24Hours : last24Hours+" "+denotation
     }
 }

@@ -76,8 +76,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="TOTAL" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAC-NV-xow">
-                                <rect key="frame" x="248" y="8" width="32" height="12"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="CONFIRMED" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAC-NV-xow">
+                                <rect key="frame" x="219.5" y="8" width="60.5" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -88,8 +88,8 @@
                                 <color key="textColor" red="0.57637861249418287" green="0.73585249352331605" blue="0.61709484441183504" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="FEE" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89Z-Nq-59g">
-                                <rect key="frame" x="262" y="52" width="18" height="12"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="TX FEE" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89Z-Nq-59g">
+                                <rect key="frame" x="245.5" y="52" width="34.5" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -106,7 +106,7 @@
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IOx-9b-VzL">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IOx-9b-VzL">
                                 <rect key="frame" x="244" y="100.5" width="36" height="19.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -120,6 +120,7 @@
                             <constraint firstItem="QcG-td-bnd" firstAttribute="top" secondItem="pCo-8z-bkG" secondAttribute="top" constant="8" id="7no-pN-2Qu"/>
                             <constraint firstItem="ocf-bg-f1r" firstAttribute="top" secondItem="LDe-c7-IJZ" secondAttribute="bottom" constant="5" id="8Un-2Q-ZKV"/>
                             <constraint firstItem="QcG-td-bnd" firstAttribute="leading" secondItem="pCo-8z-bkG" secondAttribute="leading" constant="10" id="GVb-zc-2bb"/>
+                            <constraint firstAttribute="bottom" secondItem="IOx-9b-VzL" secondAttribute="bottom" constant="9.5" id="HRM-F2-DEE"/>
                             <constraint firstItem="mD6-83-NpA" firstAttribute="leading" secondItem="Jsp-nP-f8Z" secondAttribute="trailing" constant="8" id="J9S-PQ-83m"/>
                             <constraint firstItem="Jsp-nP-f8Z" firstAttribute="leading" secondItem="pCo-8z-bkG" secondAttribute="leading" constant="10" id="K4M-vh-4vQ"/>
                             <constraint firstItem="f8r-Qd-gxG" firstAttribute="leading" secondItem="de4-sp-dWF" secondAttribute="trailing" constant="8" id="Mwx-M5-Yid"/>
@@ -135,6 +136,7 @@
                             <constraint firstItem="IA6-Tz-MnP" firstAttribute="leading" secondItem="FDs-Pg-8eR" secondAttribute="trailing" constant="8" id="jJH-fr-oni"/>
                             <constraint firstItem="LDe-c7-IJZ" firstAttribute="top" secondItem="89Z-Nq-59g" secondAttribute="bottom" id="jj2-Cn-kg8"/>
                             <constraint firstItem="89Z-Nq-59g" firstAttribute="top" secondItem="z4T-wN-Hqw" secondAttribute="bottom" constant="8" id="oop-Qg-gCY"/>
+                            <constraint firstAttribute="trailing" secondItem="IOx-9b-VzL" secondAttribute="trailing" constant="10" id="otE-aL-bdw"/>
                             <constraint firstItem="IA6-Tz-MnP" firstAttribute="centerY" secondItem="FDs-Pg-8eR" secondAttribute="centerY" id="pTk-gi-39I"/>
                             <constraint firstItem="FDs-Pg-8eR" firstAttribute="leading" secondItem="pCo-8z-bkG" secondAttribute="leading" constant="10" id="q3W-Dl-Xvs"/>
                             <constraint firstAttribute="trailing" secondItem="ocf-bg-f1r" secondAttribute="trailing" constant="10" id="rL5-XS-hKo"/>
@@ -158,12 +160,12 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="coinLabel" destination="QcG-td-bnd" id="fsO-tl-x52"/>
+                <outlet property="confirmedLabel" destination="z4T-wN-Hqw" id="t8V-NA-dZO"/>
                 <outlet property="creditedLabel" destination="mD6-83-NpA" id="3O8-ug-5H4"/>
                 <outlet property="exchangeLabel" destination="IA6-Tz-MnP" id="nPX-mc-EYV"/>
                 <outlet property="feePercentageLabel" destination="LDe-c7-IJZ" id="jKy-mW-hFZ"/>
                 <outlet property="hashRateLabel" destination="f8r-Qd-gxG" id="ms7-iu-Faq"/>
                 <outlet property="last24hrsLabel" destination="IOx-9b-VzL" id="ID2-XE-ZwG"/>
-                <outlet property="totalCurrencyLabel" destination="z4T-wN-Hqw" id="gxS-zS-lKL"/>
             </connections>
             <point key="canvasLocation" x="37" y="64"/>
         </tableViewCell>

@@ -19,6 +19,7 @@
 		F00D68761FEA31EB003C80C2 /* UserBalancesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00D68751FEA31EB003C80C2 /* UserBalancesTableViewController.swift */; };
 		F00D687A1FEA3596003C80C2 /* BalanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00D68781FEA3596003C80C2 /* BalanceTableViewCell.swift */; };
 		F00D687B1FEA3596003C80C2 /* BalanceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F00D68791FEA3596003C80C2 /* BalanceTableViewCell.xib */; };
+		F00D688E1FEAECC8003C80C2 /* AccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00D688D1FEAECC8003C80C2 /* AccountTableViewController.swift */; };
 		F0D1F6321FE8AFC400C346B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D1F6311FE8AFC400C346B4 /* AppDelegate.swift */; };
 		F0D1F6391FE8AFC400C346B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0D1F6381FE8AFC400C346B4 /* Assets.xcassets */; };
 		F0D1F63C1FE8AFC400C346B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0D1F63A1FE8AFC400C346B4 /* LaunchScreen.storyboard */; };
@@ -64,6 +65,7 @@
 		F00D68751FEA31EB003C80C2 /* UserBalancesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBalancesTableViewController.swift; sourceTree = "<group>"; };
 		F00D68781FEA3596003C80C2 /* BalanceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceTableViewCell.swift; sourceTree = "<group>"; };
 		F00D68791FEA3596003C80C2 /* BalanceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BalanceTableViewCell.xib; sourceTree = "<group>"; };
+		F00D688D1FEAECC8003C80C2 /* AccountTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewController.swift; sourceTree = "<group>"; };
 		F0D1F62E1FE8AFC400C346B4 /* MiningPoolHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiningPoolHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0D1F6311FE8AFC400C346B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0D1F6381FE8AFC400C346B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 		F00D68581FE9FE82003C80C2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F00D688C1FEAECA9003C80C2 /* Account */,
 				F00D68741FEA3167003C80C2 /* Balances */,
 				F00D686A1FEA0C4C003C80C2 /* Navigation */,
 				F00D685E1FE9FEFD003C80C2 /* ProfitStatistics */,
@@ -228,6 +231,14 @@
 				F00D68791FEA3596003C80C2 /* BalanceTableViewCell.xib */,
 			);
 			path = Balance;
+			sourceTree = "<group>";
+		};
+		F00D688C1FEAECA9003C80C2 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				F00D688D1FEAECC8003C80C2 /* AccountTableViewController.swift */,
+			);
+			path = Account;
 			sourceTree = "<group>";
 		};
 		F0D1F6251FE8AFC400C346B4 = {
@@ -593,6 +604,7 @@
 				F00D68761FEA31EB003C80C2 /* UserBalancesTableViewController.swift in Sources */,
 				F00D687A1FEA3596003C80C2 /* BalanceTableViewCell.swift in Sources */,
 				F00D68731FEA148C003C80C2 /* Normalization.swift in Sources */,
+				F00D688E1FEAECC8003C80C2 /* AccountTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

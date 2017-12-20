@@ -56,7 +56,8 @@ extension AppDelegate {
         //Set tabs
         tabBarController.viewControllers = [
             MphNavigationController(rootViewController: ProfitStatisticsViewController(provider: provider)),
-            MphNavigationController(rootViewController: UserBalancesTableViewController(provider: provider))
+            MphNavigationController(rootViewController: UserBalancesTableViewController(provider: provider)),
+            MphNavigationController(rootViewController: AccountTableViewController(provider: provider))
         ]
         
         //Set style

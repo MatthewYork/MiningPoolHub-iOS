@@ -1,7 +1,7 @@
 PODS:
   - DateToolsSwift (2.0.3)
   - Kingfisher (4.5.0)
-  - MiningPoolHub-Swift (4.1.1):
+  - MiningPoolHub-Swift (4.1.3):
     - ObjectMapper
   - ObjectMapper (3.1.0)
 
@@ -14,7 +14,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   DateToolsSwift: bf69bf9056d9e53c5c03f06e51f219b9b8b02f9e
   Kingfisher: 26ae0473102b77b575da51960c932431e3745407
-  MiningPoolHub-Swift: 7a41cf33da6a01817704ea06d68299650ee23636
+  MiningPoolHub-Swift: 2289dbc3276fd601615be42a9a59f5830d408810
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
 
 PODFILE CHECKSUM: 49d55d182b6ae16ebb68cf5dad64faa7e1aa49b9

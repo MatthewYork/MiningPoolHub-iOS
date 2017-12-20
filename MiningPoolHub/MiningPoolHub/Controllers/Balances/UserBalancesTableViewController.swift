@@ -11,7 +11,7 @@ import MiningPoolHub_Swift
 class UserBalancesTableViewController: UITableViewController {
     //Internal enums
     enum SortingCriteria: Int {
-        case coinName = 1, confirmed = 2, hashRate = 3, twentyFourHours = 4, total = 5
+        case coinName, confirmed, hashRate, twentyFourHours, total
         
         func description() -> String {
             switch self {
@@ -49,13 +49,13 @@ class UserBalancesTableViewController: UITableViewController {
     //Variables
     let provider: MphWebProvider
     var userBalances: MphsResponse?
-    var sortingCriteria: SortingCriteria = SortingCriteria.coinName
+    var sortingCriteria: SortingCriteria = SortingCriteria.confirmed
     var currency: MphsCurrency = MphsCurrency.usd
     
     init(provider: MphWebProvider) {
         self.provider = provider
         super.init(style: .plain)
-        self.title = "User Balances"
+        self.title = "Balances"
         tabBarItem.image = UIImage(named: "balance-30")
         tabBarItem.selectedImage = UIImage(named: "balance-30")
     }
@@ -87,6 +87,10 @@ class UserBalancesTableViewController: UITableViewController {
     }
     
     func addBarButtons() {
+        //Add right bar button
+        let leftBarButton = UIBarButtonItem(title: currency.description(), style: .plain, target: self, action: #selector(didSelectCurrency))
+        navigationItem.leftBarButtonItem = leftBarButton
+        
         //Add right bar button
         let rightBarButton = UIBarButtonItem(image: UIImage(named: "sort-22"), style: .plain, target: self, action: #selector(didSelectSort))
         navigationItem.rightBarButtonItem = rightBarButton
@@ -125,10 +129,8 @@ extension UserBalancesTableViewController {
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
         
         //Add enum values
-        var rawValue = 1
+        var rawValue = 0
         while let criteria = SortingCriteria(rawValue: rawValue) {
-            rawValue += 1
-            
             alert.addAction(UIAlertAction(title: criteria.description(), style: UIAlertActionStyle.default, handler: { action in
                 
                 //Gather new criteria
@@ -139,6 +141,7 @@ extension UserBalancesTableViewController {
                 self.sortBalances(sortingCriteria: newCriteria)
                 self.tableView.reloadData()
             }) )
+            rawValue += 1
         }
         
         present(alert, animated: true, completion: nil)
@@ -153,16 +156,43 @@ extension UserBalancesTableViewController {
                 case .coinName:
                     return b1.coin < b2.coin
                 case .confirmed:
-                    return b1.confirmed > b2.confirmed
+                    return b1.confirmed_value > b2.confirmed_value
                 case .hashRate:
                     return b1.hashrate > b2.hashrate
                 case .twentyFourHours:
                     return b1.payout_last_24 > b2.payout_last_24
                 case .total:
-                    return b1.total > b2.total
+                    return b1.total_value > b2.total_value
                 }
             })
         }
+    }
+    
+    @objc func didSelectCurrency() {
+        let alert = UIAlertController(title: "Change Currency", message: "Which currency would you like to describe payouts?", preferredStyle: .actionSheet)
+        alert.view.tintColor = UIColor.black
+        
+        //Add cancel
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+        
+        //Add enum values
+        var rawValue = 0
+        while let criteria = MphsCurrency(rawValue: rawValue) {
+            alert.addAction(UIAlertAction(title: criteria.description(), style: UIAlertActionStyle.default, handler: { action in
+                
+                //Gather new criteria
+                guard let actionTitle = action.title else { return }
+                guard let newCurrency = MphsCurrency(string: actionTitle) else { return }
+                
+                //Sort on new criteria
+                self.currency = newCurrency
+                self.navigationItem.leftBarButtonItem?.title = newCurrency.description()
+                self.loadData()
+            }) )
+            rawValue += 1
+        }
+        
+        present(alert, animated: true, completion: nil)
     }
 }
 
