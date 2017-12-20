@@ -22,6 +22,7 @@
 		F00D688E1FEAECC8003C80C2 /* AccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00D688D1FEAECC8003C80C2 /* AccountTableViewController.swift */; };
 		F00D68921FEB0849003C80C2 /* EstimatesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00D68901FEB0849003C80C2 /* EstimatesTableViewCell.swift */; };
 		F00D68931FEB0849003C80C2 /* EstimatesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F00D68911FEB0849003C80C2 /* EstimatesTableViewCell.xib */; };
+		F00D68951FEB1C72003C80C2 /* CurrencyFormattedNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00D68941FEB1C72003C80C2 /* CurrencyFormattedNumber.swift */; };
 		F0D1F6321FE8AFC400C346B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D1F6311FE8AFC400C346B4 /* AppDelegate.swift */; };
 		F0D1F6391FE8AFC400C346B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0D1F6381FE8AFC400C346B4 /* Assets.xcassets */; };
 		F0D1F63C1FE8AFC400C346B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0D1F63A1FE8AFC400C346B4 /* LaunchScreen.storyboard */; };
@@ -70,6 +71,7 @@
 		F00D688D1FEAECC8003C80C2 /* AccountTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewController.swift; sourceTree = "<group>"; };
 		F00D68901FEB0849003C80C2 /* EstimatesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimatesTableViewCell.swift; sourceTree = "<group>"; };
 		F00D68911FEB0849003C80C2 /* EstimatesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EstimatesTableViewCell.xib; sourceTree = "<group>"; };
+		F00D68941FEB1C72003C80C2 /* CurrencyFormattedNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormattedNumber.swift; sourceTree = "<group>"; };
 		F0D1F62E1FE8AFC400C346B4 /* MiningPoolHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiningPoolHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0D1F6311FE8AFC400C346B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0D1F6381FE8AFC400C346B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 		F00D685A1FE9FE95003C80C2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F00D68941FEB1C72003C80C2 /* CurrencyFormattedNumber.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MiningPoolHub-Swift/MiningPoolHub_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -484,6 +488,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MiningPoolHub_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkeletonView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -616,6 +621,7 @@
 				F00D686C1FEA0C57003C80C2 /* MphNavigationController.swift in Sources */,
 				F00D68921FEB0849003C80C2 /* EstimatesTableViewCell.swift in Sources */,
 				F00D68691FEA0A8D003C80C2 /* ProfitStatisticsViewController.swift in Sources */,
+				F00D68951FEB1C72003C80C2 /* CurrencyFormattedNumber.swift in Sources */,
 				F0D1F6321FE8AFC400C346B4 /* AppDelegate.swift in Sources */,
 				F00D68761FEA31EB003C80C2 /* UserBalancesTableViewController.swift in Sources */,
 				F00D687A1FEA3596003C80C2 /* BalanceTableViewCell.swift in Sources */,

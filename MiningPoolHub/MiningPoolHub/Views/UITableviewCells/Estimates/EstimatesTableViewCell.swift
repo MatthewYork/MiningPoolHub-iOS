@@ -29,18 +29,11 @@ class EstimatesTableViewCell: UITableViewCell {
     }
     
     func setContent(estimates: MphsEstimatesData, currency: MphsCurrency) {
-        //Detect crypto format
-        var format = ""
-        switch currency {
-        case .btc, .ltc, .eth, .xmr : format = "%.7f"
-        default: format = "%.2f"
-        }
-        
-        last24HoursLabel.text = String(format: format, estimates.last_24_hours)+" "+currency.description()
-        hourlyLabel.text = String(format: format, estimates.hourly)+" "+currency.description()
-        dailyLabel.text = String(format: format, estimates.daily)+" "+currency.description()
-        weeklyLabel.text = String(format: format, estimates.weekly)+" "+currency.description()
-        monthlyLabel.text = String(format: format, estimates.monthly)+" "+currency.description()
-        yearlyLabel.text = String(format: format, estimates.yearly)+" "+currency.description()
+        last24HoursLabel.text = CurrencyFormattedNumber(for: estimates.last_24_hours, in: currency).formattedNumber
+        hourlyLabel.text = CurrencyFormattedNumber(for: estimates.hourly, in: currency).formattedNumber
+        dailyLabel.text = CurrencyFormattedNumber(for: estimates.daily, in: currency).formattedNumber
+        weeklyLabel.text = CurrencyFormattedNumber(for: estimates.weekly, in: currency).formattedNumber
+        monthlyLabel.text = CurrencyFormattedNumber(for: estimates.monthly, in: currency).formattedNumber
+        yearlyLabel.text = CurrencyFormattedNumber(for: estimates.yearly, in: currency).formattedNumber
     }
 }

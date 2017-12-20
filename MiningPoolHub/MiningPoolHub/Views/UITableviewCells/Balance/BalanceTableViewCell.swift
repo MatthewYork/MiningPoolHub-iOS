@@ -42,36 +42,8 @@ class BalanceTableViewCell: UITableViewCell {
         hashRateLabel.text = String(format: "%.4f", balance.hashrate)
         feePercentageLabel.text = String(format: "%.0f", balance.payout_fee_percent)+" %"
         
-        
-        //Computed values
-        setCurrencyLabels(balance: balance, currency: currency)
-    }
-    
-    func setCurrencyLabels(balance: MphsWalletData, currency: MphsCurrency) {
-        //Detect crypto format
-        var format = ""
-        switch currency {
-        case .btc, .ltc, .eth, .xmr : format = "%.7f"
-        default: format = "%.2f"
-        }
-        
-        //Create number strings
-        let confirmed = String(format: format, balance.confirmed_value)
-        let last24Hours = String(format: format, balance.payout_last_24_value)
-        
-        var denotation = ""; var before = true;
-        switch currency {
-        case .usd: denotation = "$";
-        case .eur: denotation = "€"
-        case .gbp: denotation = "£"
-        case .btc: denotation = "BTC"; before = false
-        case .ltc: denotation = "LTC"; before = false
-        case .eth: denotation = "ETH"; before = false
-        case .xmr: denotation = "XMR"; before = false
-        }
-        
         //Set currency labels
-        confirmedLabel.text = before ? denotation+" "+confirmed : confirmed+" "+denotation
-        last24hrsLabel.text = before ? denotation+" "+last24Hours : last24Hours+" "+denotation
+        confirmedLabel.text = CurrencyFormattedNumber(for: balance.confirmed_value, in: currency).formattedNumber
+        last24hrsLabel.text = CurrencyFormattedNumber(for: balance.payout_last_24_value, in: currency).formattedNumber
     }
 }

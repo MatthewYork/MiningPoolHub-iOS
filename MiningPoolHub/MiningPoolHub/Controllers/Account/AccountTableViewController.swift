@@ -37,6 +37,7 @@ class AccountTableViewController: UITableViewController {
         }
         registerCells()
         setupTable()
+        addBarButtons()
         loadData()
     }
     
@@ -50,6 +51,16 @@ class AccountTableViewController: UITableViewController {
         //Refresh control
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(loadData), for: UIControlEvents.valueChanged)
+    }
+    
+    func addBarButtons() {
+        //Add right bar button
+        let leftBarButton = UIBarButtonItem(title: currency.description(), style: .plain, target: self, action: #selector(didSelectCurrency))
+        navigationItem.leftBarButtonItem = leftBarButton
+        
+        //Add right bar button
+        let rightBarButton = UIBarButtonItem(image: UIImage(named: "settings-22"), style: .plain, target: self, action: #selector(didSelectSettings))
+        navigationItem.rightBarButtonItem = rightBarButton
     }
 
     // MARK: - Table view data source
@@ -72,6 +83,39 @@ class AccountTableViewController: UITableViewController {
         }
 
         return cell
+    }
+}
+
+extension AccountTableViewController {
+    @objc func didSelectSettings() {
+        
+    }
+    
+    @objc func didSelectCurrency() {
+        let alert = UIAlertController(title: "Change Currency", message: "Which currency would you like to describe payouts?", preferredStyle: .actionSheet)
+        alert.view.tintColor = UIColor.black
+        
+        //Add cancel
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+        
+        //Add enum values
+        var rawValue = 0
+        while let criteria = MphsCurrency(rawValue: rawValue) {
+            alert.addAction(UIAlertAction(title: criteria.description(), style: UIAlertActionStyle.default, handler: { action in
+                
+                //Gather new criteria
+                guard let actionTitle = action.title else { return }
+                guard let newCurrency = MphsCurrency(string: actionTitle) else { return }
+                
+                //Sort on new criteria
+                self.currency = newCurrency
+                self.navigationItem.leftBarButtonItem?.title = newCurrency.description()
+                self.loadData()
+            }) )
+            rawValue += 1
+        }
+        
+        present(alert, animated: true, completion: nil)
     }
 }
 
