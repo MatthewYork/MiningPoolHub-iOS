@@ -8,7 +8,7 @@
 import Foundation
 import MiningPoolHub_Swift
 
-class ProfitStatisticsTableViewController: UIViewController {
+class ProfitStatisticsViewController: UIViewController {
     
     //Variables
     let provider: MphWebProvider
@@ -26,7 +26,7 @@ class ProfitStatisticsTableViewController: UIViewController {
     
     init(provider: MphWebProvider) {
         self.provider = provider
-        super.init(nibName: "ProfitStatisticsTableViewController", bundle: nil)
+        super.init(nibName: "ProfitStatisticsViewController", bundle: nil)
         self.title = "Profit Statistics"
         tabBarItem.image = UIImage(named: "performance-30")
         tabBarItem.selectedImage = UIImage(named: "performance-30")
@@ -90,7 +90,7 @@ class ProfitStatisticsTableViewController: UIViewController {
 }
 
 // MARK: - Table view data source
-extension ProfitStatisticsTableViewController: UITableViewDataSource, UITableViewDelegate {
+extension ProfitStatisticsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -117,7 +117,7 @@ extension ProfitStatisticsTableViewController: UITableViewDataSource, UITableVie
     }
 }
 
-extension ProfitStatisticsTableViewController {
+extension ProfitStatisticsViewController {
     @objc func loadData() {
         //Get auto switching
         let _ = provider.getAutoSwitchingAndProfitsStatistics(completion: { (response: MphListResponse<MphAutoSwitchingProfitStatistics>) in

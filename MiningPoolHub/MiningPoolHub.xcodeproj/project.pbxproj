@@ -11,11 +11,12 @@
 		E2CE5D38328E0209329E37DE /* Pods_MiningPoolHubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 454A062888A9085CDA157D20 /* Pods_MiningPoolHubTests.framework */; };
 		F00D68661FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00D68641FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.swift */; };
 		F00D68671FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F00D68651FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.xib */; };
-		F00D68691FEA0A8D003C80C2 /* ProfitStatisticsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00D68681FEA0A8D003C80C2 /* ProfitStatisticsTableViewController.swift */; };
+		F00D68691FEA0A8D003C80C2 /* ProfitStatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00D68681FEA0A8D003C80C2 /* ProfitStatisticsViewController.swift */; };
 		F00D686C1FEA0C57003C80C2 /* MphNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00D686B1FEA0C57003C80C2 /* MphNavigationController.swift */; };
-		F00D686E1FEA11DC003C80C2 /* ProfitStatisticsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F00D686D1FEA11DB003C80C2 /* ProfitStatisticsTableViewController.xib */; };
+		F00D686E1FEA11DC003C80C2 /* ProfitStatisticsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F00D686D1FEA11DB003C80C2 /* ProfitStatisticsViewController.xib */; };
 		F00D68711FEA1480003C80C2 /* ContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00D68701FEA1480003C80C2 /* ContentType.swift */; };
 		F00D68731FEA148C003C80C2 /* Normalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00D68721FEA148C003C80C2 /* Normalization.swift */; };
+		F00D68761FEA31EB003C80C2 /* UserBalancesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00D68751FEA31EB003C80C2 /* UserBalancesTableViewController.swift */; };
 		F0D1F6321FE8AFC400C346B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D1F6311FE8AFC400C346B4 /* AppDelegate.swift */; };
 		F0D1F6391FE8AFC400C346B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0D1F6381FE8AFC400C346B4 /* Assets.xcassets */; };
 		F0D1F63C1FE8AFC400C346B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0D1F63A1FE8AFC400C346B4 /* LaunchScreen.storyboard */; };
@@ -53,11 +54,12 @@
 		EC426CF5BA55BF5A427AA523 /* Pods-MiningPoolHub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiningPoolHub.release.xcconfig"; path = "Pods/Target Support Files/Pods-MiningPoolHub/Pods-MiningPoolHub.release.xcconfig"; sourceTree = "<group>"; };
 		F00D68641FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfitStatisticsTableViewCell.swift; sourceTree = "<group>"; };
 		F00D68651FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfitStatisticsTableViewCell.xib; sourceTree = "<group>"; };
-		F00D68681FEA0A8D003C80C2 /* ProfitStatisticsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfitStatisticsTableViewController.swift; sourceTree = "<group>"; };
+		F00D68681FEA0A8D003C80C2 /* ProfitStatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfitStatisticsViewController.swift; sourceTree = "<group>"; };
 		F00D686B1FEA0C57003C80C2 /* MphNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MphNavigationController.swift; sourceTree = "<group>"; };
-		F00D686D1FEA11DB003C80C2 /* ProfitStatisticsTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfitStatisticsTableViewController.xib; sourceTree = "<group>"; };
+		F00D686D1FEA11DB003C80C2 /* ProfitStatisticsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfitStatisticsViewController.xib; sourceTree = "<group>"; };
 		F00D68701FEA1480003C80C2 /* ContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentType.swift; sourceTree = "<group>"; };
 		F00D68721FEA148C003C80C2 /* Normalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Normalization.swift; sourceTree = "<group>"; };
+		F00D68751FEA31EB003C80C2 /* UserBalancesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBalancesTableViewController.swift; sourceTree = "<group>"; };
 		F0D1F62E1FE8AFC400C346B4 /* MiningPoolHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiningPoolHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0D1F6311FE8AFC400C346B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0D1F6381FE8AFC400C346B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 		F00D68581FE9FE82003C80C2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F00D68741FEA3167003C80C2 /* Balances */,
 				F00D686A1FEA0C4C003C80C2 /* Navigation */,
 				F00D685E1FE9FEFD003C80C2 /* ProfitStatistics */,
 			);
@@ -173,8 +176,8 @@
 		F00D685E1FE9FEFD003C80C2 /* ProfitStatistics */ = {
 			isa = PBXGroup;
 			children = (
-				F00D68681FEA0A8D003C80C2 /* ProfitStatisticsTableViewController.swift */,
-				F00D686D1FEA11DB003C80C2 /* ProfitStatisticsTableViewController.xib */,
+				F00D68681FEA0A8D003C80C2 /* ProfitStatisticsViewController.swift */,
+				F00D686D1FEA11DB003C80C2 /* ProfitStatisticsViewController.xib */,
 			);
 			path = ProfitStatistics;
 			sourceTree = "<group>";
@@ -203,6 +206,14 @@
 				F00D68721FEA148C003C80C2 /* Normalization.swift */,
 			);
 			path = Enumerations;
+			sourceTree = "<group>";
+		};
+		F00D68741FEA3167003C80C2 /* Balances */ = {
+			isa = PBXGroup;
+			children = (
+				F00D68751FEA31EB003C80C2 /* UserBalancesTableViewController.swift */,
+			);
+			path = Balances;
 			sourceTree = "<group>";
 		};
 		F0D1F6251FE8AFC400C346B4 = {
@@ -377,7 +388,7 @@
 			files = (
 				F00D68671FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.xib in Resources */,
 				F0D1F63C1FE8AFC400C346B4 /* LaunchScreen.storyboard in Resources */,
-				F00D686E1FEA11DC003C80C2 /* ProfitStatisticsTableViewController.xib in Resources */,
+				F00D686E1FEA11DC003C80C2 /* ProfitStatisticsViewController.xib in Resources */,
 				F0D1F6391FE8AFC400C346B4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -562,8 +573,9 @@
 				F00D68711FEA1480003C80C2 /* ContentType.swift in Sources */,
 				F00D68661FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.swift in Sources */,
 				F00D686C1FEA0C57003C80C2 /* MphNavigationController.swift in Sources */,
-				F00D68691FEA0A8D003C80C2 /* ProfitStatisticsTableViewController.swift in Sources */,
+				F00D68691FEA0A8D003C80C2 /* ProfitStatisticsViewController.swift in Sources */,
 				F0D1F6321FE8AFC400C346B4 /* AppDelegate.swift in Sources */,
+				F00D68761FEA31EB003C80C2 /* UserBalancesTableViewController.swift in Sources */,
 				F00D68731FEA148C003C80C2 /* Normalization.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
