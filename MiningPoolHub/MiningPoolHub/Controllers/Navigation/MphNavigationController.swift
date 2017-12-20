@@ -19,8 +19,8 @@ open class MphNavigationController: UINavigationController {
     func setTheme() {
         self.navigationBar.isOpaque = true;
         self.navigationBar.isTranslucent = false
-        self.navigationBar.tintColor = UIColor.white
-        self.navigationBar.backgroundColor = UIColor.white
+        self.navigationBar.tintColor = UIColor.black
+        self.navigationBar.backgroundColor = UIColor.black
         self.navigationBar.barTintColor = UIColor.white
         self.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.black]
         //self.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
