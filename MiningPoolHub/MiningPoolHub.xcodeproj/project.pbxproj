@@ -9,9 +9,14 @@
 /* Begin PBXBuildFile section */
 		8543D0D03B35C5B39626F84A /* Pods_MiningPoolHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B692D727EA42EBC71B3DE216 /* Pods_MiningPoolHub.framework */; };
 		E2CE5D38328E0209329E37DE /* Pods_MiningPoolHubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 454A062888A9085CDA157D20 /* Pods_MiningPoolHubTests.framework */; };
+		F00D68661FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00D68641FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.swift */; };
+		F00D68671FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F00D68651FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.xib */; };
+		F00D68691FEA0A8D003C80C2 /* ProfitStatisticsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00D68681FEA0A8D003C80C2 /* ProfitStatisticsTableViewController.swift */; };
+		F00D686C1FEA0C57003C80C2 /* MphNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00D686B1FEA0C57003C80C2 /* MphNavigationController.swift */; };
+		F00D686E1FEA11DC003C80C2 /* ProfitStatisticsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F00D686D1FEA11DB003C80C2 /* ProfitStatisticsTableViewController.xib */; };
+		F00D68711FEA1480003C80C2 /* ContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00D68701FEA1480003C80C2 /* ContentType.swift */; };
+		F00D68731FEA148C003C80C2 /* Normalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00D68721FEA148C003C80C2 /* Normalization.swift */; };
 		F0D1F6321FE8AFC400C346B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D1F6311FE8AFC400C346B4 /* AppDelegate.swift */; };
-		F0D1F6341FE8AFC400C346B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D1F6331FE8AFC400C346B4 /* ViewController.swift */; };
-		F0D1F6371FE8AFC400C346B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0D1F6351FE8AFC400C346B4 /* Main.storyboard */; };
 		F0D1F6391FE8AFC400C346B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0D1F6381FE8AFC400C346B4 /* Assets.xcassets */; };
 		F0D1F63C1FE8AFC400C346B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0D1F63A1FE8AFC400C346B4 /* LaunchScreen.storyboard */; };
 		F0D1F6471FE8AFC400C346B4 /* MiningPoolHubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D1F6461FE8AFC400C346B4 /* MiningPoolHubTests.swift */; };
@@ -46,10 +51,15 @@
 		B9D68FA50F862D476E45A7A5 /* Pods-MiningPoolHubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiningPoolHubUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MiningPoolHubUITests/Pods-MiningPoolHubUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B9DEABC1F1B9E296192D843E /* Pods-MiningPoolHubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiningPoolHubTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MiningPoolHubTests/Pods-MiningPoolHubTests.release.xcconfig"; sourceTree = "<group>"; };
 		EC426CF5BA55BF5A427AA523 /* Pods-MiningPoolHub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiningPoolHub.release.xcconfig"; path = "Pods/Target Support Files/Pods-MiningPoolHub/Pods-MiningPoolHub.release.xcconfig"; sourceTree = "<group>"; };
+		F00D68641FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfitStatisticsTableViewCell.swift; sourceTree = "<group>"; };
+		F00D68651FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfitStatisticsTableViewCell.xib; sourceTree = "<group>"; };
+		F00D68681FEA0A8D003C80C2 /* ProfitStatisticsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfitStatisticsTableViewController.swift; sourceTree = "<group>"; };
+		F00D686B1FEA0C57003C80C2 /* MphNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MphNavigationController.swift; sourceTree = "<group>"; };
+		F00D686D1FEA11DB003C80C2 /* ProfitStatisticsTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfitStatisticsTableViewController.xib; sourceTree = "<group>"; };
+		F00D68701FEA1480003C80C2 /* ContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentType.swift; sourceTree = "<group>"; };
+		F00D68721FEA148C003C80C2 /* Normalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Normalization.swift; sourceTree = "<group>"; };
 		F0D1F62E1FE8AFC400C346B4 /* MiningPoolHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiningPoolHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0D1F6311FE8AFC400C346B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F0D1F6331FE8AFC400C346B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F0D1F6361FE8AFC400C346B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F0D1F6381FE8AFC400C346B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F0D1F63B1FE8AFC400C346B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F0D1F63D1FE8AFC400C346B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -112,6 +122,89 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F00D68581FE9FE82003C80C2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F00D686A1FEA0C4C003C80C2 /* Navigation */,
+				F00D685E1FE9FEFD003C80C2 /* ProfitStatistics */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F00D68591FE9FE8B003C80C2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F00D685C1FE9FEC4003C80C2 /* UICollectionviewCells */,
+				F00D685B1FE9FE9F003C80C2 /* UITableviewCells */,
+				F00D685D1FE9FED1003C80C2 /* UIViews */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F00D685A1FE9FE95003C80C2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F00D685B1FE9FE9F003C80C2 /* UITableviewCells */ = {
+			isa = PBXGroup;
+			children = (
+				F00D68631FEA03D6003C80C2 /* ProfitStatistics */,
+			);
+			path = UITableviewCells;
+			sourceTree = "<group>";
+		};
+		F00D685C1FE9FEC4003C80C2 /* UICollectionviewCells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UICollectionviewCells;
+			sourceTree = "<group>";
+		};
+		F00D685D1FE9FED1003C80C2 /* UIViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UIViews;
+			sourceTree = "<group>";
+		};
+		F00D685E1FE9FEFD003C80C2 /* ProfitStatistics */ = {
+			isa = PBXGroup;
+			children = (
+				F00D68681FEA0A8D003C80C2 /* ProfitStatisticsTableViewController.swift */,
+				F00D686D1FEA11DB003C80C2 /* ProfitStatisticsTableViewController.xib */,
+			);
+			path = ProfitStatistics;
+			sourceTree = "<group>";
+		};
+		F00D68631FEA03D6003C80C2 /* ProfitStatistics */ = {
+			isa = PBXGroup;
+			children = (
+				F00D68641FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.swift */,
+				F00D68651FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.xib */,
+			);
+			path = ProfitStatistics;
+			sourceTree = "<group>";
+		};
+		F00D686A1FEA0C4C003C80C2 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				F00D686B1FEA0C57003C80C2 /* MphNavigationController.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		F00D686F1FEA1471003C80C2 /* Enumerations */ = {
+			isa = PBXGroup;
+			children = (
+				F00D68701FEA1480003C80C2 /* ContentType.swift */,
+				F00D68721FEA148C003C80C2 /* Normalization.swift */,
+			);
+			path = Enumerations;
+			sourceTree = "<group>";
+		};
 		F0D1F6251FE8AFC400C346B4 = {
 			isa = PBXGroup;
 			children = (
@@ -137,9 +230,11 @@
 		F0D1F6301FE8AFC400C346B4 /* MiningPoolHub */ = {
 			isa = PBXGroup;
 			children = (
+				F00D686F1FEA1471003C80C2 /* Enumerations */,
+				F00D685A1FE9FE95003C80C2 /* Models */,
+				F00D68591FE9FE8B003C80C2 /* Views */,
+				F00D68581FE9FE82003C80C2 /* Controllers */,
 				F0D1F6311FE8AFC400C346B4 /* AppDelegate.swift */,
-				F0D1F6331FE8AFC400C346B4 /* ViewController.swift */,
-				F0D1F6351FE8AFC400C346B4 /* Main.storyboard */,
 				F0D1F6381FE8AFC400C346B4 /* Assets.xcassets */,
 				F0D1F63A1FE8AFC400C346B4 /* LaunchScreen.storyboard */,
 				F0D1F63D1FE8AFC400C346B4 /* Info.plist */,
@@ -280,9 +375,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F00D68671FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.xib in Resources */,
 				F0D1F63C1FE8AFC400C346B4 /* LaunchScreen.storyboard in Resources */,
+				F00D686E1FEA11DC003C80C2 /* ProfitStatisticsTableViewController.xib in Resources */,
 				F0D1F6391FE8AFC400C346B4 /* Assets.xcassets in Resources */,
-				F0D1F6371FE8AFC400C346B4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,8 +559,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0D1F6341FE8AFC400C346B4 /* ViewController.swift in Sources */,
+				F00D68711FEA1480003C80C2 /* ContentType.swift in Sources */,
+				F00D68661FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.swift in Sources */,
+				F00D686C1FEA0C57003C80C2 /* MphNavigationController.swift in Sources */,
+				F00D68691FEA0A8D003C80C2 /* ProfitStatisticsTableViewController.swift in Sources */,
 				F0D1F6321FE8AFC400C346B4 /* AppDelegate.swift in Sources */,
+				F00D68731FEA148C003C80C2 /* Normalization.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,14 +600,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F0D1F6351FE8AFC400C346B4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F0D1F6361FE8AFC400C346B4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F0D1F63A1FE8AFC400C346B4 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -638,7 +730,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.matthewyork.MiningPoolHub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -654,7 +746,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.matthewyork.MiningPoolHub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

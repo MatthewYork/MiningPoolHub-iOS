@@ -12,11 +12,16 @@ import MiningPoolHub_Swift
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let tabBarController = UITabBarController()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-
+        
+        //Setup UI
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = tabBarController
+        window?.makeKeyAndVisible()
+        setupTabBar()
+        
         return true
     }
 
@@ -41,7 +46,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
 
+extension AppDelegate {
+    func setupTabBar() {
+        //Create provider
+        let provider = MphWebProvider(configuration: MphDefaultConfiguration(apiKey: ""))
+        
+        //Set tabs
+        tabBarController.viewControllers = [
+            MphNavigationController(rootViewController: ProfitStatisticsTableViewController(provider: provider))
+        ]
+        
+        //Set style
+        tabBarController.tabBar.tintColor = UIColor.black
+        
+        //Remove tab names
+        for tabBarItem in tabBarController.tabBar.items! {
+            tabBarItem.title = "";
+            tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+        }
+    }
+}
