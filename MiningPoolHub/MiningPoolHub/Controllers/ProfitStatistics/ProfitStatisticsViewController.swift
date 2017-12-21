@@ -99,26 +99,39 @@ extension ProfitStatisticsViewController: UITableViewDataSource, UITableViewDele
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return contentType == .auto
-            ? (autoSwitchStatistics?.response.count ?? 0)
-            : (miningStatistics?.response.count ?? 0)
+            ? (autoSwitchStatistics?.response.count ?? 6)
+            : (miningStatistics?.response.count ?? 6)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProfitStatisticsTableViewCell", for: indexPath) as! ProfitStatisticsTableViewCell
         
-        switch contentType {
-        case .auto:
-            cell.setSelected(content: autoSwitchStatistics?.response[indexPath.row], normalization: normalization)
-        case .coin:
-            cell.setSelected(content: miningStatistics?.response[indexPath.row], normalization: normalization)
+        if let response = autoSwitchStatistics?.response[indexPath.row] {
+            cell.containerView.isHidden = false
+            cell.shouldPulse = false
+            
+            switch contentType {
+            case .auto:
+                cell.setSelected(content: autoSwitchStatistics?.response[indexPath.row], normalization: normalization)
+            case .coin:
+                cell.setSelected(content: miningStatistics?.response[indexPath.row], normalization: normalization)
+            }
         }
-        
+        else {
+            cell.shouldPulse = true
+            cell.animatePulseView()
+            cell.containerView.isHidden = true
+        }
         return cell
     }
 }
 
 extension ProfitStatisticsViewController {
     @objc func loadData() {
+        self.autoSwitchStatistics = nil
+        self.miningStatistics = nil
+        self.tableView.reloadData()
+        
         //Get auto switching
         let _ = provider.getAutoSwitchingAndProfitsStatistics(completion: { (response: MphListResponse<MphAutoSwitchingProfitStatistics>) in
             self.autoSwitchStatistics = response

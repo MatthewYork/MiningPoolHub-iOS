@@ -8,8 +8,9 @@
 import UIKit
 import MiningPoolHub_Swift
 
-class BalanceTableViewCell: UITableViewCell {
+class BalanceTableViewCell: PulsableTableViewCell {
 
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var coinLabel: UILabel!
     @IBOutlet weak var creditedLabel: UILabel!
     @IBOutlet weak var exchangeLabel: UILabel!

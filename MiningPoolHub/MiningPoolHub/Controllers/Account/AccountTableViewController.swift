@@ -14,6 +14,7 @@ class AccountTableViewController: UITableViewController {
     let provider: MphWebProvider
     var userResponse: MphsResponse?
     var currency: MphsCurrency = MphsCurrency.usd
+    var viewHasLoaded = false //Necessary for preview shimmer
     
     init(provider: MphWebProvider) {
         self.provider = provider
@@ -47,7 +48,6 @@ class AccountTableViewController: UITableViewController {
     
     func setupTable() {
         tableView.separatorInset = UIEdgeInsets(top: 0, left: UIScreen.main.bounds.width, bottom: 0, right: 0)
-        
         //Refresh control
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(loadData), for: UIControlEvents.valueChanged)
@@ -61,28 +61,6 @@ class AccountTableViewController: UITableViewController {
         //Add right bar button
         let rightBarButton = UIBarButtonItem(image: UIImage(named: "settings-22"), style: .plain, target: self, action: #selector(didSelectSettings))
         navigationItem.rightBarButtonItem = rightBarButton
-    }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return userResponse != nil ? 1 : 0
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "EstimatesTableViewCell", for: indexPath) as! EstimatesTableViewCell
-
-        if let estimates = userResponse?.estimates_data {
-            cell.setContent(estimates: estimates, currency: currency)
-        }
-
-        return cell
     }
 }
 
@@ -121,6 +99,11 @@ extension AccountTableViewController {
 
 extension AccountTableViewController {
     @objc func loadData() {
+        //Start shimmer
+        userResponse = nil
+        tableView.reloadData()
+        
+        //Get data
         let _ = provider.getMiningPoolHubStats(currency: currency, completion: { (response: MphsResponse) in
             self.userResponse = response
             self.tableView.reloadData()
@@ -129,5 +112,31 @@ extension AccountTableViewController {
         }) { (error: Error) in
             //handle error
         }
+    }
+}
+
+extension AccountTableViewController {
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EstimatesTableViewCell", for: indexPath) as! EstimatesTableViewCell
+        
+        if let estimates = userResponse?.estimates_data {
+            cell.containerView.isHidden = false
+            cell.shouldPulse = false
+            cell.setContent(estimates: estimates, currency: currency)
+        }
+        else {
+            cell.shouldPulse = true
+            cell.animatePulseView()
+            cell.containerView.isHidden = true
+        }
+        return cell
     }
 }

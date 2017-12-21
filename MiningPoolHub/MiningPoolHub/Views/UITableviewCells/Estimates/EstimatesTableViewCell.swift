@@ -8,8 +8,9 @@
 import UIKit
 import MiningPoolHub_Swift
 
-class EstimatesTableViewCell: UITableViewCell {
+class EstimatesTableViewCell: PulsableTableViewCell {
 
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var last24HoursLabel: UILabel!
     @IBOutlet weak var hourlyLabel: UILabel!
     @IBOutlet weak var dailyLabel: UILabel!
@@ -24,8 +25,6 @@ class EstimatesTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func setContent(estimates: MphsEstimatesData, currency: MphsCurrency) {

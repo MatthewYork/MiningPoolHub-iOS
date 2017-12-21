@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8543D0D03B35C5B39626F84A /* Pods_MiningPoolHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B692D727EA42EBC71B3DE216 /* Pods_MiningPoolHub.framework */; };
 		E2CE5D38328E0209329E37DE /* Pods_MiningPoolHubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 454A062888A9085CDA157D20 /* Pods_MiningPoolHubTests.framework */; };
+		F004B1DD1FEB60230017ECFF /* PulsableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F004B1DC1FEB60230017ECFF /* PulsableTableViewCell.swift */; };
 		F00D68661FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00D68641FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.swift */; };
 		F00D68671FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F00D68651FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.xib */; };
 		F00D68691FEA0A8D003C80C2 /* ProfitStatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00D68681FEA0A8D003C80C2 /* ProfitStatisticsViewController.swift */; };
@@ -58,6 +59,7 @@
 		B9D68FA50F862D476E45A7A5 /* Pods-MiningPoolHubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiningPoolHubUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MiningPoolHubUITests/Pods-MiningPoolHubUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B9DEABC1F1B9E296192D843E /* Pods-MiningPoolHubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiningPoolHubTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MiningPoolHubTests/Pods-MiningPoolHubTests.release.xcconfig"; sourceTree = "<group>"; };
 		EC426CF5BA55BF5A427AA523 /* Pods-MiningPoolHub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiningPoolHub.release.xcconfig"; path = "Pods/Target Support Files/Pods-MiningPoolHub/Pods-MiningPoolHub.release.xcconfig"; sourceTree = "<group>"; };
+		F004B1DC1FEB60230017ECFF /* PulsableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulsableTableViewCell.swift; sourceTree = "<group>"; };
 		F00D68641FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfitStatisticsTableViewCell.swift; sourceTree = "<group>"; };
 		F00D68651FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfitStatisticsTableViewCell.xib; sourceTree = "<group>"; };
 		F00D68681FEA0A8D003C80C2 /* ProfitStatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfitStatisticsViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +138,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F004B1DB1FEB600F0017ECFF /* Pulsable */ = {
+			isa = PBXGroup;
+			children = (
+				F004B1DC1FEB60230017ECFF /* PulsableTableViewCell.swift */,
+			);
+			path = Pulsable;
+			sourceTree = "<group>";
+		};
 		F00D68581FE9FE82003C80C2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +178,7 @@
 		F00D685B1FE9FE9F003C80C2 /* UITableviewCells */ = {
 			isa = PBXGroup;
 			children = (
+				F004B1DB1FEB600F0017ECFF /* Pulsable */,
 				F00D688F1FEB0832003C80C2 /* Estimates */,
 				F00D68771FEA3581003C80C2 /* Balance */,
 				F00D68631FEA03D6003C80C2 /* ProfitStatistics */,
@@ -480,7 +491,6 @@
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MiningPoolHub-Swift/MiningPoolHub_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -488,7 +498,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MiningPoolHub_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkeletonView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -621,6 +630,7 @@
 				F00D686C1FEA0C57003C80C2 /* MphNavigationController.swift in Sources */,
 				F00D68921FEB0849003C80C2 /* EstimatesTableViewCell.swift in Sources */,
 				F00D68691FEA0A8D003C80C2 /* ProfitStatisticsViewController.swift in Sources */,
+				F004B1DD1FEB60230017ECFF /* PulsableTableViewCell.swift in Sources */,
 				F00D68951FEB1C72003C80C2 /* CurrencyFormattedNumber.swift in Sources */,
 				F0D1F6321FE8AFC400C346B4 /* AppDelegate.swift in Sources */,
 				F00D68761FEA31EB003C80C2 /* UserBalancesTableViewController.swift in Sources */,

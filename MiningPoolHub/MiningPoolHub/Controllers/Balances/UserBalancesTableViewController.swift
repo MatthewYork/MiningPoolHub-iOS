@@ -111,12 +111,21 @@ class UserBalancesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return userBalances?.wallet_data.count ?? 0
+        return userBalances?.wallet_data.count ?? 4
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BalanceTableViewCell", for: indexPath) as! BalanceTableViewCell
-        if let balance = userBalances?.wallet_data[indexPath.row] {cell.setSelected(balance: balance, currency: currency)}
+        if let balance = userBalances?.wallet_data[indexPath.row] {
+            cell.containerView.isHidden = false
+            cell.shouldPulse = false
+            cell.setSelected(balance: balance, currency: currency)
+        }
+        else {
+            cell.shouldPulse = true
+            cell.animatePulseView()
+            cell.containerView.isHidden = true
+        }
         
         return cell
     }
@@ -200,6 +209,9 @@ extension UserBalancesTableViewController {
 
 extension UserBalancesTableViewController {
     @objc func loadData() {
+        userBalances = nil
+        tableView.reloadData()
+        
         let _ = provider.getMiningPoolHubStats(currency: currency, completion: { (response: MphsResponse) in
             self.userBalances = response
             self.sortBalances(sortingCriteria: self.sortingCriteria)

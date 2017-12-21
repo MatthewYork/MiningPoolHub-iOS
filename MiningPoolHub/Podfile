@@ -10,7 +10,6 @@ target 'MiningPoolHub' do
   pod 'Kingfisher'
   pod 'ObjectMapper'
   pod 'MiningPoolHub-Swift'
-  pod 'SkeletonView'
 
   target 'MiningPoolHubTests' do
     inherit! :search_paths

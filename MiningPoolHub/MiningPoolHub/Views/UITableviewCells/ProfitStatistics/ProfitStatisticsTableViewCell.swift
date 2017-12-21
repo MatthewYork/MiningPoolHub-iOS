@@ -8,8 +8,9 @@
 import UIKit
 import MiningPoolHub_Swift
 
-class ProfitStatisticsTableViewCell: UITableViewCell {
+class ProfitStatisticsTableViewCell: PulsableTableViewCell {
 
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
     
