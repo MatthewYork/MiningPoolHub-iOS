@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="WorkerCollectionTableViewCell" customModule="MiningPoolHub" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="139.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F1J-bi-Zed">
+                        <rect key="frame" x="50" y="9.5" width="86" height="26.5"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="computer-pdf" translatesAutoresizingMaskIntoConstraints="NO" id="YQj-e2-zy1">
+                        <rect key="frame" x="15" y="10" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="413-Kb-okw"/>
+                            <constraint firstAttribute="width" constant="25" id="gRr-Lo-osQ"/>
+                        </constraints>
+                    </imageView>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="G2E-Cb-w1X">
+                        <rect key="frame" x="0.0" y="40" width="320" height="100"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="100" id="TuD-Hz-4Z2"/>
+                        </constraints>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Bg2-Nf-wIM">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <connections>
+                            <outlet property="dataSource" destination="KGk-i7-Jjw" id="7pY-Mq-cO5"/>
+                            <outlet property="delegate" destination="KGk-i7-Jjw" id="ngQ-a0-Wn5"/>
+                        </connections>
+                    </collectionView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="G2E-Cb-w1X" firstAttribute="top" secondItem="YQj-e2-zy1" secondAttribute="bottom" constant="5" id="7Lq-18-j2w"/>
+                    <constraint firstItem="YQj-e2-zy1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="ZRy-go-VBl"/>
+                    <constraint firstItem="F1J-bi-Zed" firstAttribute="leading" secondItem="YQj-e2-zy1" secondAttribute="trailing" constant="10" id="bkL-vO-WHA"/>
+                    <constraint firstItem="F1J-bi-Zed" firstAttribute="centerY" secondItem="YQj-e2-zy1" secondAttribute="centerY" id="kpb-7k-Tgx"/>
+                    <constraint firstItem="G2E-Cb-w1X" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="lUd-kG-hFc"/>
+                    <constraint firstItem="YQj-e2-zy1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="rDC-ID-0QE"/>
+                    <constraint firstAttribute="trailing" secondItem="G2E-Cb-w1X" secondAttribute="trailing" id="rOg-93-NsQ"/>
+                    <constraint firstAttribute="bottom" secondItem="G2E-Cb-w1X" secondAttribute="bottom" id="rYX-qy-xlR"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="collectionView" destination="G2E-Cb-w1X" id="SOX-39-RcK"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="computer-pdf" width="50" height="50"/>
+    </resources>
+</document>

@@ -44,6 +44,7 @@ class AccountTableViewController: UITableViewController {
     
     func registerCells() {
         tableView.register(UINib(nibName: "EstimatesTableViewCell", bundle: nil), forCellReuseIdentifier: "EstimatesTableViewCell")
+        tableView.register(UINib(nibName: "WorkerCollectionTableViewCell", bundle: nil), forCellReuseIdentifier: "WorkerCollectionTableViewCell")
     }
     
     func setupTable() {
@@ -117,7 +118,7 @@ extension AccountTableViewController {
 
 extension AccountTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -125,6 +126,15 @@ extension AccountTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.section {
+        case 0: return estimatesCell(indexPath: indexPath)
+        case 1: return workersCell(indexPath: indexPath)
+        default:
+            return tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+        }
+    }
+    
+    func estimatesCell(indexPath: IndexPath) -> EstimatesTableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EstimatesTableViewCell", for: indexPath) as! EstimatesTableViewCell
         
         if let estimates = userResponse?.estimates_data {
@@ -137,6 +147,13 @@ extension AccountTableViewController {
             cell.animatePulseView()
             cell.containerView.isHidden = true
         }
+        return cell
+    }
+    
+    func workersCell(indexPath: IndexPath) -> WorkerCollectionTableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WorkerCollectionTableViewCell", for: indexPath) as! WorkerCollectionTableViewCell
+        
+        cell.setContent(workers: userResponse?.worker_data)
         return cell
     }
 }

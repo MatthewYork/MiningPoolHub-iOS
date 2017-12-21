@@ -10,6 +10,11 @@
 		8543D0D03B35C5B39626F84A /* Pods_MiningPoolHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B692D727EA42EBC71B3DE216 /* Pods_MiningPoolHub.framework */; };
 		E2CE5D38328E0209329E37DE /* Pods_MiningPoolHubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 454A062888A9085CDA157D20 /* Pods_MiningPoolHubTests.framework */; };
 		F004B1DD1FEB60230017ECFF /* PulsableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F004B1DC1FEB60230017ECFF /* PulsableTableViewCell.swift */; };
+		F004B1E21FEB70C30017ECFF /* WorkerCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F004B1E01FEB70C30017ECFF /* WorkerCollectionTableViewCell.swift */; };
+		F004B1E31FEB70C30017ECFF /* WorkerCollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F004B1E11FEB70C30017ECFF /* WorkerCollectionTableViewCell.xib */; };
+		F004B1E61FEB71D50017ECFF /* WorkerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F004B1E41FEB71D50017ECFF /* WorkerCollectionViewCell.swift */; };
+		F004B1E71FEB71D50017ECFF /* WorkerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F004B1E51FEB71D50017ECFF /* WorkerCollectionViewCell.xib */; };
+		F004B1EB1FEB782C0017ECFF /* PulsableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F004B1E91FEB782C0017ECFF /* PulsableCollectionViewCell.swift */; };
 		F00D68661FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00D68641FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.swift */; };
 		F00D68671FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F00D68651FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.xib */; };
 		F00D68691FEA0A8D003C80C2 /* ProfitStatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00D68681FEA0A8D003C80C2 /* ProfitStatisticsViewController.swift */; };
@@ -60,6 +65,11 @@
 		B9DEABC1F1B9E296192D843E /* Pods-MiningPoolHubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiningPoolHubTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MiningPoolHubTests/Pods-MiningPoolHubTests.release.xcconfig"; sourceTree = "<group>"; };
 		EC426CF5BA55BF5A427AA523 /* Pods-MiningPoolHub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiningPoolHub.release.xcconfig"; path = "Pods/Target Support Files/Pods-MiningPoolHub/Pods-MiningPoolHub.release.xcconfig"; sourceTree = "<group>"; };
 		F004B1DC1FEB60230017ECFF /* PulsableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulsableTableViewCell.swift; sourceTree = "<group>"; };
+		F004B1E01FEB70C30017ECFF /* WorkerCollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerCollectionTableViewCell.swift; sourceTree = "<group>"; };
+		F004B1E11FEB70C30017ECFF /* WorkerCollectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkerCollectionTableViewCell.xib; sourceTree = "<group>"; };
+		F004B1E41FEB71D50017ECFF /* WorkerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerCollectionViewCell.swift; sourceTree = "<group>"; };
+		F004B1E51FEB71D50017ECFF /* WorkerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkerCollectionViewCell.xib; sourceTree = "<group>"; };
+		F004B1E91FEB782C0017ECFF /* PulsableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulsableCollectionViewCell.swift; sourceTree = "<group>"; };
 		F00D68641FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfitStatisticsTableViewCell.swift; sourceTree = "<group>"; };
 		F00D68651FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfitStatisticsTableViewCell.xib; sourceTree = "<group>"; };
 		F00D68681FEA0A8D003C80C2 /* ProfitStatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfitStatisticsViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +156,32 @@
 			path = Pulsable;
 			sourceTree = "<group>";
 		};
+		F004B1DE1FEB70990017ECFF /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				F004B1E41FEB71D50017ECFF /* WorkerCollectionViewCell.swift */,
+				F004B1E51FEB71D50017ECFF /* WorkerCollectionViewCell.xib */,
+			);
+			path = Worker;
+			sourceTree = "<group>";
+		};
+		F004B1DF1FEB70A50017ECFF /* WorkerCollection */ = {
+			isa = PBXGroup;
+			children = (
+				F004B1E01FEB70C30017ECFF /* WorkerCollectionTableViewCell.swift */,
+				F004B1E11FEB70C30017ECFF /* WorkerCollectionTableViewCell.xib */,
+			);
+			path = WorkerCollection;
+			sourceTree = "<group>";
+		};
+		F004B1E81FEB78170017ECFF /* Pulsable */ = {
+			isa = PBXGroup;
+			children = (
+				F004B1E91FEB782C0017ECFF /* PulsableCollectionViewCell.swift */,
+			);
+			path = Pulsable;
+			sourceTree = "<group>";
+		};
 		F00D68581FE9FE82003C80C2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +214,7 @@
 		F00D685B1FE9FE9F003C80C2 /* UITableviewCells */ = {
 			isa = PBXGroup;
 			children = (
+				F004B1DF1FEB70A50017ECFF /* WorkerCollection */,
 				F004B1DB1FEB600F0017ECFF /* Pulsable */,
 				F00D688F1FEB0832003C80C2 /* Estimates */,
 				F00D68771FEA3581003C80C2 /* Balance */,
@@ -189,6 +226,8 @@
 		F00D685C1FE9FEC4003C80C2 /* UICollectionviewCells */ = {
 			isa = PBXGroup;
 			children = (
+				F004B1E81FEB78170017ECFF /* Pulsable */,
+				F004B1DE1FEB70990017ECFF /* Worker */,
 			);
 			path = UICollectionviewCells;
 			sourceTree = "<group>";
@@ -439,11 +478,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F004B1E31FEB70C30017ECFF /* WorkerCollectionTableViewCell.xib in Resources */,
 				F00D68671FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.xib in Resources */,
 				F0D1F63C1FE8AFC400C346B4 /* LaunchScreen.storyboard in Resources */,
 				F00D686E1FEA11DC003C80C2 /* ProfitStatisticsViewController.xib in Resources */,
 				F00D687B1FEA3596003C80C2 /* BalanceTableViewCell.xib in Resources */,
 				F0D1F6391FE8AFC400C346B4 /* Assets.xcassets in Resources */,
+				F004B1E71FEB71D50017ECFF /* WorkerCollectionViewCell.xib in Resources */,
 				F00D68931FEB0849003C80C2 /* EstimatesTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -625,9 +666,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F004B1E61FEB71D50017ECFF /* WorkerCollectionViewCell.swift in Sources */,
 				F00D68711FEA1480003C80C2 /* ContentType.swift in Sources */,
 				F00D68661FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.swift in Sources */,
 				F00D686C1FEA0C57003C80C2 /* MphNavigationController.swift in Sources */,
+				F004B1E21FEB70C30017ECFF /* WorkerCollectionTableViewCell.swift in Sources */,
 				F00D68921FEB0849003C80C2 /* EstimatesTableViewCell.swift in Sources */,
 				F00D68691FEA0A8D003C80C2 /* ProfitStatisticsViewController.swift in Sources */,
 				F004B1DD1FEB60230017ECFF /* PulsableTableViewCell.swift in Sources */,
@@ -636,6 +679,7 @@
 				F00D68761FEA31EB003C80C2 /* UserBalancesTableViewController.swift in Sources */,
 				F00D687A1FEA3596003C80C2 /* BalanceTableViewCell.swift in Sources */,
 				F00D68731FEA148C003C80C2 /* Normalization.swift in Sources */,
+				F004B1EB1FEB782C0017ECFF /* PulsableCollectionViewCell.swift in Sources */,
 				F00D688E1FEAECC8003C80C2 /* AccountTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
