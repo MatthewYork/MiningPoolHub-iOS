@@ -12,13 +12,15 @@ class AccountTableViewController: UITableViewController {
 
     //Variables
     let provider: MphWebProvider
+    let defaultsManager: UserDefaultsManager
     var userResponse: MphsResponse?
     var transactionsResponse: MphUserTransactionsResponse?
     var currency: MphsCurrency = MphsCurrency.usd
     var viewHasLoaded = false //Necessary for preview shimmer
     
-    init(provider: MphWebProvider) {
+    init(provider: MphWebProvider, defaultsManager: UserDefaultsManager) {
         self.provider = provider
+        self.defaultsManager = defaultsManager
         
         super.init(style: .plain)
         self.title = "Account"
@@ -39,6 +41,7 @@ class AccountTableViewController: UITableViewController {
         }
         registerCells()
         setupTable()
+        initializeParameters()
         addBarButtons()
         loadData()
     }
@@ -53,6 +56,16 @@ class AccountTableViewController: UITableViewController {
         //Refresh control
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(loadData), for: UIControlEvents.valueChanged)
+    }
+    
+    func initializeParameters() {
+        initializeCurrency()
+    }
+    
+    func initializeCurrency() {
+        guard let currencyString: String = defaultsManager.get(scope: "account", key: "currency") else { return }
+        guard let currency = MphsCurrency(string: currencyString) else { return }
+        self.currency = currency
     }
     
     func addBarButtons() {
@@ -87,6 +100,7 @@ extension AccountTableViewController {
                 //Gather new criteria
                 guard let actionTitle = action.title else { return }
                 guard let newCurrency = MphsCurrency(string: actionTitle) else { return }
+                let _ = self.defaultsManager.set(scope: "account", key: "currency", value: newCurrency.description())
                 
                 //Sort on new criteria
                 self.currency = newCurrency

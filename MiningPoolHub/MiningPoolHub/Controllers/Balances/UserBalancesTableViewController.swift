@@ -48,12 +48,15 @@ class UserBalancesTableViewController: UITableViewController {
     
     //Variables
     let provider: MphWebProvider
+    let defaultsManager: UserDefaultsManager
     var userBalances: MphsResponse?
     var sortingCriteria: SortingCriteria = SortingCriteria.confirmed
     var currency: MphsCurrency = MphsCurrency.usd
     
-    init(provider: MphWebProvider) {
+    init(provider: MphWebProvider, defaultsManager: UserDefaultsManager) {
         self.provider = provider
+        self.defaultsManager = defaultsManager
+        
         super.init(style: .plain)
         self.title = "Balances"
         tabBarItem.image = UIImage(named: "balance-30")
@@ -73,6 +76,7 @@ class UserBalancesTableViewController: UITableViewController {
         }
         registerCells()
         setupTable()
+        initializeParameters()
         addBarButtons()
         loadData()
     }
@@ -87,6 +91,23 @@ class UserBalancesTableViewController: UITableViewController {
         //Refresh control
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(loadData), for: UIControlEvents.valueChanged)
+    }
+    
+    func initializeParameters() {
+        initializeCurrency()
+        initializeSortingCriteria()
+    }
+    
+    func initializeCurrency() {
+        guard let currencyString: String = defaultsManager.get(scope: "balances", key: "currency") else { return }
+        guard let currency = MphsCurrency(string: currencyString) else { return }
+        self.currency = currency
+    }
+    
+    func initializeSortingCriteria() {
+        guard let sortingCriteriaString: String = defaultsManager.get(scope: "balances", key: "sortingCriteria") else { return }
+        guard let sortingCriteria = SortingCriteria(string: sortingCriteriaString) else { return }
+        self.sortingCriteria = sortingCriteria
     }
     
     func addBarButtons() {
@@ -146,6 +167,7 @@ extension UserBalancesTableViewController {
                 //Gather new criteria
                 guard let actionTitle = action.title else { return }
                 guard let newCriteria = SortingCriteria(string: actionTitle) else { return }
+                let _ = self.defaultsManager.set(scope: "balances", key: "sortingCriteria", value: newCriteria.description())
                 
                 //Sort on new criteria
                 self.sortBalances(sortingCriteria: newCriteria)
@@ -193,6 +215,7 @@ extension UserBalancesTableViewController {
                 //Gather new criteria
                 guard let actionTitle = action.title else { return }
                 guard let newCurrency = MphsCurrency(string: actionTitle) else { return }
+                let _ = self.defaultsManager.set(scope: "balances", key: "currency", value: newCurrency.description())
                 
                 //Sort on new criteria
                 self.currency = newCurrency
