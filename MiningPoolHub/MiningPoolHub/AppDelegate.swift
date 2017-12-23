@@ -22,8 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         //Create provider and defaults manager
-        let provider = MphWebProvider(configuration: MphDefaultConfiguration(apiKey: ""))
         let defaultsManager = UserDefaultsManager()
+        let apiKey = defaultsManager.get(scope: "accountSettings", key: "apiKey") ?? ""
+        let provider = MphWebProvider(configuration: MphDefaultConfiguration(apiKey: apiKey))
+        
         
         //Setup UI
         setupTabBar(provider: provider)
