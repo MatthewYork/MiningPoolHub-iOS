@@ -29,7 +29,5 @@ class WorkerCollectionViewCell: PulsableCollectionViewCell {
             let rateString = String(format: "%.2f KH/s", hashrate)
             hashRateLabel.text = rateString
         }
-        
-        shouldPulse = false
     }
 }

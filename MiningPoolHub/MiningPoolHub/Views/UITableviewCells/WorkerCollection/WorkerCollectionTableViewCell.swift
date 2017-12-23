@@ -51,7 +51,6 @@ extension WorkerCollectionTableViewCell : UICollectionViewDataSource, UICollecti
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // Create the cell and return the cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WorkerCollectionViewCell", for: indexPath) as! WorkerCollectionViewCell
-        cell.shouldPulse = false
         
         if let worker = workers?[indexPath.row] {
             cell.containerView.isHidden = false

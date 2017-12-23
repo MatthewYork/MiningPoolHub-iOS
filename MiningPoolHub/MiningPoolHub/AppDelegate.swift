@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         //Setup UI
-        setupTabBar(provider: provider)
+        setupTabBar(provider: provider, defaultsManager: defaultsManager)
         showAccountSettings(provider: provider, defaultsManager: defaultsManager)
         authenticateIfNecessary(defaultsManager: defaultsManager)
         
@@ -59,12 +59,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension AppDelegate {
-    func setupTabBar(provider: MphWebProvider) {
+    func setupTabBar(provider: MphWebProvider, defaultsManager: UserDefaultsManager) {
         
         
         //Set tabs
         tabBarController.viewControllers = [
-            MphNavigationController(rootViewController: ProfitStatisticsViewController(provider: provider)),
+            MphNavigationController(rootViewController: ProfitStatisticsViewController(provider: provider, defaultsManager: defaultsManager)),
             MphNavigationController(rootViewController: UserBalancesTableViewController(provider: provider)),
             MphNavigationController(rootViewController: AccountTableViewController(provider: provider))
         ]

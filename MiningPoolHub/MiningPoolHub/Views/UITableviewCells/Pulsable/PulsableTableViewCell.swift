@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import QuartzCore
 
 class PulsableTableViewCell: UITableViewCell {
 
-    var shouldPulse: Bool = false
+    var pulseCount = 0
+    let pulseMax = 5
+    
     @IBOutlet weak var pulseView: UIView!
     
     override func awakeFromNib() {
@@ -17,14 +20,14 @@ class PulsableTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func resetPulse() {
+        pulseCount = 0
+        pulseView.layer.removeAllAnimations()
     }
 
     func animatePulseView(){
-        if !shouldPulse {return}
+        if pulseCount > pulseMax {return}
+        pulseCount += 1
         
         UIView.animate(withDuration: 1.5, animations: {
             self.pulseView.backgroundColor = UIColor.white

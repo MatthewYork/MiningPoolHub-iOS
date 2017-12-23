@@ -9,4 +9,14 @@ import Foundation
 
 enum ContentType: Int {
     case auto, coin
+    
+    public init?(string: String) {
+        switch string {
+        case "Auto":
+            self = .auto
+        case "Coin" :
+            self = .coin
+        default: return nil
+        }
+    }
 }

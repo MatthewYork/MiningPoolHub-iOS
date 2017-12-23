@@ -9,7 +9,6 @@ import UIKit
 
 class PulsableCollectionViewCell: UICollectionViewCell {
 
-    var shouldPulse: Bool = false
     var pulseCount = 0
     let pulseMax = 5
     
@@ -22,10 +21,12 @@ class PulsableCollectionViewCell: UICollectionViewCell {
     
     func resetPulse() {
         pulseCount = 0
+        pulseView.layer.removeAllAnimations()
     }
 
     func animatePulseView(){
         if pulseCount > pulseMax {return}
+        pulseCount += 1
         
         UIView.animate(withDuration: 1.5, animations: {
             self.pulseView.backgroundColor = UIColor.white

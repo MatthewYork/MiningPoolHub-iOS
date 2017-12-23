@@ -13,6 +13,7 @@ class AccountTableViewController: UITableViewController {
     //Variables
     let provider: MphWebProvider
     var userResponse: MphsResponse?
+    var transactionsResponse: MphUserTransactionsResponse?
     var currency: MphsCurrency = MphsCurrency.usd
     var viewHasLoaded = false //Necessary for preview shimmer
     
@@ -105,9 +106,19 @@ extension AccountTableViewController {
         userResponse = nil
         tableView.reloadData()
         
-        //Get data
+        //Get stats
         let _ = provider.getMiningPoolHubStats(currency: currency, completion: { (response: MphsResponse) in
             self.userResponse = response
+            self.tableView.reloadData()
+            self.tableView.refreshControl?.endRefreshing()
+            
+        }) { (error: Error) in
+            //handle error
+        }
+        
+        //Get transactions
+        let _ = provider.getUserTransactions(id: nil, completion: { (response: MphUserTransactionsResponse) in
+            self.transactionsResponse = response
             self.tableView.reloadData()
             self.tableView.refreshControl?.endRefreshing()
             
@@ -119,11 +130,32 @@ extension AccountTableViewController {
 
 extension AccountTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        switch section {
+        case 0,1: return 1
+        case 2: return transactionsResponse?.transactions.data?.transactions.count ?? 0
+        default: return 0
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        switch section {
+        case 2:
+            let header = LeftImageSectionHeader.fromNib()
+            header.setContent(image: UIImage(named: "exchange-pdf"), title: "Transactions")
+            return header
+        default: return UIView()
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        switch section {
+        case 2: return UITableViewAutomaticDimension
+        default: return 0.001
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -140,11 +172,10 @@ extension AccountTableViewController {
         
         if let estimates = userResponse?.estimates_data {
             cell.containerView.isHidden = false
-            cell.shouldPulse = false
             cell.setContent(estimates: estimates, currency: currency)
         }
         else {
-            cell.shouldPulse = true
+            cell.resetPulse()
             cell.animatePulseView()
             cell.containerView.isHidden = true
         }

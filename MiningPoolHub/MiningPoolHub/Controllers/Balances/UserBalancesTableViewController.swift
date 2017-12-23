@@ -118,11 +118,10 @@ class UserBalancesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BalanceTableViewCell", for: indexPath) as! BalanceTableViewCell
         if let balance = userBalances?.wallet_data[indexPath.row] {
             cell.containerView.isHidden = false
-            cell.shouldPulse = false
             cell.setSelected(balance: balance, currency: currency)
         }
         else {
-            cell.shouldPulse = true
+            cell.resetPulse()
             cell.animatePulseView()
             cell.containerView.isHidden = true
         }

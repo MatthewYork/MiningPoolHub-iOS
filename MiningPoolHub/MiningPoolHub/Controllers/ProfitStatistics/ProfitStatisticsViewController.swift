@@ -12,6 +12,7 @@ class ProfitStatisticsViewController: UIViewController {
     
     //Variables
     let provider: MphWebProvider
+    let defaultsManager: UserDefaultsManager
     var autoSwitchStatistics: MphListResponse<MphAutoSwitchingProfitStatistics>?
     var miningStatistics: MphListResponse<MphCoinProfitStatistics>?
     var contentType: ContentType = .auto
@@ -24,8 +25,9 @@ class ProfitStatisticsViewController: UIViewController {
     @IBOutlet weak var normalizationSegmentedControl: UISegmentedControl!
     
     
-    init(provider: MphWebProvider) {
+    init(provider: MphWebProvider, defaultsManager: UserDefaultsManager) {
         self.provider = provider
+        self.defaultsManager = defaultsManager
         super.init(nibName: "ProfitStatisticsViewController", bundle: nil)
         self.title = "Profit Statistics"
         tabBarItem.image = UIImage(named: "performance-30")
@@ -41,6 +43,7 @@ class ProfitStatisticsViewController: UIViewController {
         
         registerCells()
         setupTable()
+        initializeParameters()
         loadData()
     }
     
@@ -56,10 +59,37 @@ class ProfitStatisticsViewController: UIViewController {
         tableView.refreshControl = refreshControl
     }
     
+    func initializeParameters() {
+        initializeContentType()
+        initializeNormalization()
+    }
+    
+    func initializeContentType() {
+        guard let contentTypeIndex: Int = defaultsManager.get(scope: "profitStats", key: "contentTypeIndex") else { return }
+        if contentTypeIndex > contentSegmentedControl.numberOfSegments-1 { return }
+        guard let contentType = ContentType(rawValue: contentTypeIndex) else { return }
+        self.contentType = contentType
+        contentSegmentedControl.selectedSegmentIndex = contentTypeIndex
+    }
+    
+    func initializeNormalization() {
+        guard let normalizationIndex: Int = defaultsManager.get(scope: "profitStats", key: "normalizationIndex") else { return }
+        if normalizationIndex > normalizationSegmentedControl.numberOfSegments-1 { return }
+        guard let normalization = Normalization(rawValue: normalizationIndex) else { return }
+        self.normalization = normalization
+        normalizationSegmentedControl.selectedSegmentIndex = normalizationIndex
+    }
+    
     // MARK: - Actions
     @IBAction func controlValueDidChange(_ sender: UISegmentedControl) {
-        if sender == contentSegmentedControl { contentType = ContentType(rawValue:sender.selectedSegmentIndex)! }
-        else if sender == normalizationSegmentedControl { normalization = Normalization(rawValue:sender.selectedSegmentIndex)! }
+        if sender == contentSegmentedControl {
+            contentType = ContentType(rawValue:sender.selectedSegmentIndex)!
+            let _ = defaultsManager.set(scope: "profitStats", key: "contentTypeIndex", value: sender.selectedSegmentIndex)
+        }
+        else if sender == normalizationSegmentedControl {
+            normalization = Normalization(rawValue:sender.selectedSegmentIndex)!
+            let _ = defaultsManager.set(scope: "profitStats", key: "normalizationIndex", value: sender.selectedSegmentIndex)
+        }
         sortEntries()
         tableView.reloadData()
     }
@@ -108,7 +138,6 @@ extension ProfitStatisticsViewController: UITableViewDataSource, UITableViewDele
         
         if let response = autoSwitchStatistics?.response[indexPath.row] {
             cell.containerView.isHidden = false
-            cell.shouldPulse = false
             
             switch contentType {
             case .auto:
@@ -118,7 +147,7 @@ extension ProfitStatisticsViewController: UITableViewDataSource, UITableViewDele
             }
         }
         else {
-            cell.shouldPulse = true
+            cell.resetPulse()
             cell.animatePulseView()
             cell.containerView.isHidden = true
         }
