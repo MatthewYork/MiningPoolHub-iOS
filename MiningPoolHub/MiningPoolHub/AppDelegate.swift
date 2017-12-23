@@ -20,7 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
-        setupTabBar()
+        
+        //Create provider and defaults manager
+        let provider = MphWebProvider(configuration: MphDefaultConfiguration(apiKey: ""))
+        let defaultsManager = UserDefaultsManager()
+        
+        //Setup UI
+        setupTabBar(provider: provider)
+        showAccountSettings(provider: provider, defaultsManager: defaultsManager)
+        authenticateIfNecessary(defaultsManager: defaultsManager)
         
         return true
     }
@@ -49,9 +57,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension AppDelegate {
-    func setupTabBar() {
-        //Create provider
-        let provider = MphWebProvider(configuration: MphDefaultConfiguration(apiKey: ""))
+    func setupTabBar(provider: MphWebProvider) {
+        
         
         //Set tabs
         tabBarController.viewControllers = [
@@ -68,5 +75,27 @@ extension AppDelegate {
             tabBarItem.title = "";
             tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
         }
+    }
+    
+    func showAccountSettings(provider: MphWebProvider, defaultsManager: UserDefaultsManager) {
+        guard let _ : Bool = defaultsManager.get(scope: "accountSettings", key: "initialLoad") else {
+            //Remember load
+            let _ = defaultsManager.set(scope: "accountSettings", key: "initialLoad", value: true)
+            
+            //Show settings
+            let settingsVC = AccountSettingsViewController(provider: provider, defaultsManager: UserDefaultsManager())
+            let settingsNC = MphNavigationController(rootViewController: settingsVC)
+            self.tabBarController.present(settingsNC, animated: true, completion: nil)
+            return
+        }
+    }
+    
+    func authenticateIfNecessary(defaultsManager: UserDefaultsManager) {
+        if !BioMetricAuthenticator.canAuthenticate() { return }
+        if !(defaultsManager.get(scope: "accountSettings", key: "accountProtection") ?? false) { return }
+        
+        //Present authentication
+        let authenticateVC = AuthenticateViewController()
+        tabBarController.present(authenticateVC, animated: false, completion: nil)
     }
 }

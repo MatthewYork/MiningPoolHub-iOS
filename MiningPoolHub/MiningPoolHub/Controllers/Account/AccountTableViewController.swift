@@ -67,7 +67,8 @@ class AccountTableViewController: UITableViewController {
 
 extension AccountTableViewController {
     @objc func didSelectSettings() {
-        
+        let settingsVC = AccountSettingsViewController(provider: provider, defaultsManager: UserDefaultsManager())
+        navigationController?.pushViewController(settingsVC, animated: true)
     }
     
     @objc func didSelectCurrency() {

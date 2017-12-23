@@ -15,6 +15,14 @@
 		F004B1E61FEB71D50017ECFF /* WorkerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F004B1E41FEB71D50017ECFF /* WorkerCollectionViewCell.swift */; };
 		F004B1E71FEB71D50017ECFF /* WorkerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F004B1E51FEB71D50017ECFF /* WorkerCollectionViewCell.xib */; };
 		F004B1EB1FEB782C0017ECFF /* PulsableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F004B1E91FEB782C0017ECFF /* PulsableCollectionViewCell.swift */; };
+		F004B1F31FEED1BA0017ECFF /* AccountSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F004B1F11FEED1BA0017ECFF /* AccountSettingsViewController.swift */; };
+		F004B1F41FEED1BA0017ECFF /* AccountSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F004B1F21FEED1BA0017ECFF /* AccountSettingsViewController.xib */; };
+		F004B1F71FEEDBC90017ECFF /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F004B1F61FEEDBC90017ECFF /* UserDefaultsManager.swift */; };
+		F004B20E1FEEE95B0017ECFF /* BioMetricAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F004B20A1FEEE95B0017ECFF /* BioMetricAuthenticator.swift */; };
+		F004B20F1FEEE95B0017ECFF /* AuthenticationErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F004B20B1FEEE95B0017ECFF /* AuthenticationErrors.swift */; };
+		F004B2101FEEE95B0017ECFF /* BiometricAuthenticationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F004B20D1FEEE95B0017ECFF /* BiometricAuthenticationConstants.swift */; };
+		F004B2141FEEF09C0017ECFF /* AuthenticateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F004B2121FEEF09C0017ECFF /* AuthenticateViewController.swift */; };
+		F004B2151FEEF09C0017ECFF /* AuthenticateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F004B2131FEEF09C0017ECFF /* AuthenticateViewController.xib */; };
 		F00D68661FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00D68641FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.swift */; };
 		F00D68671FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F00D68651FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.xib */; };
 		F00D68691FEA0A8D003C80C2 /* ProfitStatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00D68681FEA0A8D003C80C2 /* ProfitStatisticsViewController.swift */; };
@@ -70,6 +78,14 @@
 		F004B1E41FEB71D50017ECFF /* WorkerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerCollectionViewCell.swift; sourceTree = "<group>"; };
 		F004B1E51FEB71D50017ECFF /* WorkerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkerCollectionViewCell.xib; sourceTree = "<group>"; };
 		F004B1E91FEB782C0017ECFF /* PulsableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulsableCollectionViewCell.swift; sourceTree = "<group>"; };
+		F004B1F11FEED1BA0017ECFF /* AccountSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsViewController.swift; sourceTree = "<group>"; };
+		F004B1F21FEED1BA0017ECFF /* AccountSettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountSettingsViewController.xib; sourceTree = "<group>"; };
+		F004B1F61FEEDBC90017ECFF /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		F004B20A1FEEE95B0017ECFF /* BioMetricAuthenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BioMetricAuthenticator.swift; sourceTree = "<group>"; };
+		F004B20B1FEEE95B0017ECFF /* AuthenticationErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationErrors.swift; sourceTree = "<group>"; };
+		F004B20D1FEEE95B0017ECFF /* BiometricAuthenticationConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BiometricAuthenticationConstants.swift; sourceTree = "<group>"; };
+		F004B2121FEEF09C0017ECFF /* AuthenticateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateViewController.swift; sourceTree = "<group>"; };
+		F004B2131FEEF09C0017ECFF /* AuthenticateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthenticateViewController.xib; sourceTree = "<group>"; };
 		F00D68641FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfitStatisticsTableViewCell.swift; sourceTree = "<group>"; };
 		F00D68651FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfitStatisticsTableViewCell.xib; sourceTree = "<group>"; };
 		F00D68681FEA0A8D003C80C2 /* ProfitStatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfitStatisticsViewController.swift; sourceTree = "<group>"; };
@@ -182,10 +198,72 @@
 			path = Pulsable;
 			sourceTree = "<group>";
 		};
+		F004B1F01FEED19D0017ECFF /* AccountSettings */ = {
+			isa = PBXGroup;
+			children = (
+				F004B1F11FEED1BA0017ECFF /* AccountSettingsViewController.swift */,
+				F004B1F21FEED1BA0017ECFF /* AccountSettingsViewController.xib */,
+			);
+			path = AccountSettings;
+			sourceTree = "<group>";
+		};
+		F004B1F51FEEDBBD0017ECFF /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				F004B1F61FEEDBC90017ECFF /* UserDefaultsManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		F004B1F81FEEE8C80017ECFF /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				F004B2081FEEE9320017ECFF /* BiometricAuthentication */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		F004B2081FEEE9320017ECFF /* BiometricAuthentication */ = {
+			isa = PBXGroup;
+			children = (
+				F004B2091FEEE95B0017ECFF /* Authentication */,
+				F004B20C1FEEE95B0017ECFF /* Constants */,
+			);
+			path = BiometricAuthentication;
+			sourceTree = "<group>";
+		};
+		F004B2091FEEE95B0017ECFF /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				F004B20A1FEEE95B0017ECFF /* BioMetricAuthenticator.swift */,
+				F004B20B1FEEE95B0017ECFF /* AuthenticationErrors.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		F004B20C1FEEE95B0017ECFF /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				F004B20D1FEEE95B0017ECFF /* BiometricAuthenticationConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		F004B2111FEEF08A0017ECFF /* Authenticate */ = {
+			isa = PBXGroup;
+			children = (
+				F004B2121FEEF09C0017ECFF /* AuthenticateViewController.swift */,
+				F004B2131FEEF09C0017ECFF /* AuthenticateViewController.xib */,
+			);
+			path = Authenticate;
+			sourceTree = "<group>";
+		};
 		F00D68581FE9FE82003C80C2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F004B2111FEEF08A0017ECFF /* Authenticate */,
 				F00D688C1FEAECA9003C80C2 /* Account */,
+				F004B1F01FEED19D0017ECFF /* AccountSettings */,
 				F00D68741FEA3167003C80C2 /* Balances */,
 				F00D686A1FEA0C4C003C80C2 /* Navigation */,
 				F00D685E1FE9FEFD003C80C2 /* ProfitStatistics */,
@@ -333,6 +411,8 @@
 		F0D1F6301FE8AFC400C346B4 /* MiningPoolHub */ = {
 			isa = PBXGroup;
 			children = (
+				F004B1F81FEEE8C80017ECFF /* Libraries */,
+				F004B1F51FEEDBBD0017ECFF /* Managers */,
 				F00D686F1FEA1471003C80C2 /* Enumerations */,
 				F00D685A1FE9FE95003C80C2 /* Models */,
 				F00D68591FE9FE8B003C80C2 /* Views */,
@@ -483,9 +563,11 @@
 				F0D1F63C1FE8AFC400C346B4 /* LaunchScreen.storyboard in Resources */,
 				F00D686E1FEA11DC003C80C2 /* ProfitStatisticsViewController.xib in Resources */,
 				F00D687B1FEA3596003C80C2 /* BalanceTableViewCell.xib in Resources */,
+				F004B1F41FEED1BA0017ECFF /* AccountSettingsViewController.xib in Resources */,
 				F0D1F6391FE8AFC400C346B4 /* Assets.xcassets in Resources */,
 				F004B1E71FEB71D50017ECFF /* WorkerCollectionViewCell.xib in Resources */,
 				F00D68931FEB0849003C80C2 /* EstimatesTableViewCell.xib in Resources */,
+				F004B2151FEEF09C0017ECFF /* AuthenticateViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -666,14 +748,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F004B2101FEEE95B0017ECFF /* BiometricAuthenticationConstants.swift in Sources */,
+				F004B20E1FEEE95B0017ECFF /* BioMetricAuthenticator.swift in Sources */,
 				F004B1E61FEB71D50017ECFF /* WorkerCollectionViewCell.swift in Sources */,
 				F00D68711FEA1480003C80C2 /* ContentType.swift in Sources */,
+				F004B1F71FEEDBC90017ECFF /* UserDefaultsManager.swift in Sources */,
 				F00D68661FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.swift in Sources */,
+				F004B1F31FEED1BA0017ECFF /* AccountSettingsViewController.swift in Sources */,
 				F00D686C1FEA0C57003C80C2 /* MphNavigationController.swift in Sources */,
 				F004B1E21FEB70C30017ECFF /* WorkerCollectionTableViewCell.swift in Sources */,
 				F00D68921FEB0849003C80C2 /* EstimatesTableViewCell.swift in Sources */,
+				F004B2141FEEF09C0017ECFF /* AuthenticateViewController.swift in Sources */,
 				F00D68691FEA0A8D003C80C2 /* ProfitStatisticsViewController.swift in Sources */,
 				F004B1DD1FEB60230017ECFF /* PulsableTableViewCell.swift in Sources */,
+				F004B20F1FEEE95B0017ECFF /* AuthenticationErrors.swift in Sources */,
 				F00D68951FEB1C72003C80C2 /* CurrencyFormattedNumber.swift in Sources */,
 				F0D1F6321FE8AFC400C346B4 /* AppDelegate.swift in Sources */,
 				F00D68761FEA31EB003C80C2 /* UserBalancesTableViewController.swift in Sources */,
