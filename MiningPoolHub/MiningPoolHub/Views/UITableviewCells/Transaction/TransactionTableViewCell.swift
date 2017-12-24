@@ -36,6 +36,7 @@ class TransactionTableViewCell: PulsableTableViewCell {
         dateLabel.text = transaction.timestamp
         
         setConfirmationStatus(for: transaction)
+        setConfirmationType(for: transaction)
     }
     
     func setConfirmationStatus(for transaction: MphUserTransaction) {
@@ -52,7 +53,11 @@ class TransactionTableViewCell: PulsableTableViewCell {
             return
         }
         
-        confirmedLabel.text = confirmations > 15 ? "Confirmed" : "Unconfirmed"
-        confirmedView.backgroundColor = confirmations > 15 ? UIColor(red: 230.0/255.0, green: 239.0/255.0, blue: 194.0/255.0, alpha: 1) : UIColor(red: 255.0/255.0, green: 206.0/255.0, blue: 156.0/255.0, alpha: 1)
+        confirmedLabel.text = confirmations > 0 ? "\(confirmations) Confirmations" : "Unconfirmed"
+        confirmedView.backgroundColor = confirmations > 0 ? UIColor(red: 230.0/255.0, green: 239.0/255.0, blue: 194.0/255.0, alpha: 1) : UIColor(red: 255.0/255.0, green: 206.0/255.0, blue: 156.0/255.0, alpha: 1)
+    }
+    
+    func setConfirmationType(for transaction: MphUserTransaction) {
+        txTypeLabel.textColor = transaction.type.lowercased().contains("credit") ? UIColor(red: 82.0/255.0, green: 197.0/255.0, blue: 86.0/255.0, alpha: 1) : UIColor(red: 255.0/255.0, green: 87.0/255.0, blue: 20.0/255.0, alpha: 1)
     }
 }
