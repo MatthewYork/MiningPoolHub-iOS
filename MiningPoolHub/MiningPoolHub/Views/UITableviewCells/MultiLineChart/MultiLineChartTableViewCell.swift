@@ -11,6 +11,8 @@ import SwiftCharts
 
 class MultiLineChartTableViewCell: PulsableTableViewCell {
 
+    fileprivate var chart: Chart?
+    
     @IBOutlet weak var containerView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,24 +26,190 @@ class MultiLineChartTableViewCell: PulsableTableViewCell {
     }
     
     func setContent(walletData: MphsWalletData, currency: MphsCurrency) {
-        let chartConfig = ChartConfigXY(
-            xAxisConfig: ChartAxisConfig(from: 2, to: 14, by: 2),
-            yAxisConfig: ChartAxisConfig(from: 0, to: 14, by: 2)
-        )
+        let labelSettings = ChartLabelSettings(font: ExamplesDefaults.labelFont)
         
-        let frame = CGRect(x: 0, y: 70, width: 300, height: 500)
+        let chartPoints = [(2, 2), (3, 1), (5, 9), (6, 7), (8, 10), (9, 9), (10, 15), (13, 8), (15, 20), (16, 17)].map{ChartPoint(x: ChartAxisValueInt($0.0), y: ChartAxisValueInt($0.1))}
         
-        let chart = LineChart(
-            frame: frame,
-            chartConfig: chartConfig,
-            xTitle: "X axis",
-            yTitle: currency.description(),
-            lines: [
-                (chartPoints: [(2.0, 10.6), (4.2, 5.1), (7.3, 3.0), (8.1, 5.5), (14.0, 8.0)], color: UIColor.red),
-                (chartPoints: [(2.0, 2.6), (4.2, 4.1), (7.3, 1.0), (8.1, 11.5), (14.0, 3.0)], color: UIColor.blue)
-            ]
+        let xValues = ChartAxisValuesStaticGenerator.generateXAxisValuesWithChartPoints(chartPoints, minSegmentCount: 7, maxSegmentCount: 7, multiple: 2, axisValueGenerator: {ChartAxisValueDouble($0, labelSettings: labelSettings)}, addPaddingSegmentIfEdge: false)
+        let yValues = ChartAxisValuesStaticGenerator.generateYAxisValuesWithChartPoints(chartPoints, minSegmentCount: 10, maxSegmentCount: 20, multiple: 2, axisValueGenerator: {ChartAxisValueDouble($0, labelSettings: labelSettings)}, addPaddingSegmentIfEdge: true)
+        
+        let xModel = ChartAxisModel(axisValues: xValues)
+        let yModel = ChartAxisModel(axisValues: yValues, axisTitleLabel: ChartAxisLabel(text: "Value in "+currency.description(), settings: labelSettings.defaultVertical()))
+        let chartFrame = ExamplesDefaults.chartFrame(containerView.bounds)
+        
+        var chartSettings = ExamplesDefaults.chartSettings // for now no zooming and panning here until ChartShowCoordsLinesLayer is improved to not scale the lines during zooming.
+        chartSettings.trailing = 20
+        chartSettings.labelsToAxisSpacingX = 15
+        chartSettings.labelsToAxisSpacingY = 15
+        let coordsSpace = ChartCoordsSpaceLeftBottomSingleAxis(chartSettings: chartSettings, chartFrame: chartFrame, xModel: xModel, yModel: yModel)
+        let (xAxisLayer, yAxisLayer, innerFrame) = (coordsSpace.xAxisLayer, coordsSpace.yAxisLayer, coordsSpace.chartInnerFrame)
+        
+        
+        let labelWidth: CGFloat = 70
+        let labelHeight: CGFloat = 30
+        
+        let showCoordsTextViewsGenerator = {(chartPointModel: ChartPointLayerModel, layer: ChartPointsLayer, chart: Chart) -> UIView? in
+            let (chartPoint, screenLoc) = (chartPointModel.chartPoint, chartPointModel.screenLoc)
+            let text = chartPoint.description
+            let font = ExamplesDefaults.labelFont
+            let x = min(screenLoc.x + 5, chart.bounds.width - text.width(font) - 5)
+            let view = UIView(frame: CGRect(x: x, y: screenLoc.y - labelHeight, width: labelWidth, height: labelHeight))
+            let label = UILabel(frame: view.bounds)
+            label.text = text
+            label.font = ExamplesDefaults.labelFont
+            view.addSubview(label)
+            view.alpha = 0
+            
+            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut, animations: {
+                view.alpha = 1
+            }, completion: nil)
+            
+            return view
+        }
+        
+        let showCoordsLinesLayer = ChartShowCoordsLinesLayer<ChartPoint>(xAxis: xAxisLayer.axis, yAxis: yAxisLayer.axis, chartPoints: chartPoints)
+        
+        let showCoordsTextLayer = ChartPointsSingleViewLayer<ChartPoint, UIView>(xAxis: xAxisLayer.axis, yAxis: yAxisLayer.axis, innerFrame: innerFrame, chartPoints: chartPoints, viewGenerator: showCoordsTextViewsGenerator, mode: .custom, keepOnFront: true)
+        // To preserve the offset of the notification views from the chart point they represent, during transforms, we need to pass mode: .custom along with this custom transformer.
+        showCoordsTextLayer.customTransformer = {(model, view, layer) -> Void in
+            guard let chart = layer.chart else {return}
+            
+            let text = model.chartPoint.description
+            
+            let screenLoc = layer.modelLocToScreenLoc(x: model.chartPoint.x.scalar, y: model.chartPoint.y.scalar)
+            let x = min(screenLoc.x + 5, chart.bounds.width - text.width(ExamplesDefaults.labelFont) - 5)
+            
+            view.frame.origin = CGPoint(x: x, y: screenLoc.y - labelHeight)
+        }
+        
+        let touchViewsGenerator = {(chartPointModel: ChartPointLayerModel, layer: ChartPointsLayer, chart: Chart) -> UIView? in
+            let (chartPoint, screenLoc) = (chartPointModel.chartPoint, chartPointModel.screenLoc)
+            let s: CGFloat = 30
+            let view = HandlingView(frame: CGRect(x: screenLoc.x - s/2, y: screenLoc.y - s/2, width: s, height: s))
+            view.touchHandler = {[showCoordsLinesLayer, showCoordsTextLayer, chartPoint, chart] in
+                showCoordsLinesLayer.showChartPointLines(chartPoint, chart: chart)
+                showCoordsTextLayer.showView(chartPoint: chartPoint, chart: chart)
+            }
+            return view
+        }
+        
+        let touchLayer = ChartPointsViewsLayer(xAxis: xAxisLayer.axis, yAxis: yAxisLayer.axis, chartPoints: chartPoints, viewGenerator: touchViewsGenerator, mode: .translate, keepOnFront: true)
+        
+        let lineModel = ChartLineModel(chartPoints: chartPoints, lineColor: UIColor.init(white: 0, alpha: 0.2), lineWidth: 3, animDuration: 0.7, animDelay: 0)
+        let chartPointsLineLayer = ChartPointsLineLayer(xAxis: xAxisLayer.axis, yAxis: yAxisLayer.axis, lineModels: [lineModel])
+        
+        let circleViewGenerator = {(chartPointModel: ChartPointLayerModel, layer: ChartPointsLayer, chart: Chart) -> UIView? in
+            let circleView = ChartPointEllipseView(center: chartPointModel.screenLoc, diameter: 12)
+            circleView.animDuration = 1.5
+            circleView.fillColor = UIColor.white
+            circleView.borderWidth = 3
+            circleView.borderColor = UIColor.black
+            return circleView
+        }
+        let chartPointsCircleLayer = ChartPointsViewsLayer(xAxis: xAxisLayer.axis, yAxis: yAxisLayer.axis, chartPoints: chartPoints, viewGenerator: circleViewGenerator, displayDelay: 0, delayBetweenItems: 0.05, mode: .translate)
+        
+        let settings = ChartGuideLinesDottedLayerSettings(linesColor: UIColor.black, linesWidth: ExamplesDefaults.guidelinesWidth)
+        let guidelinesLayer = ChartGuideLinesDottedLayer(xAxisLayer: xAxisLayer, yAxisLayer: yAxisLayer, settings: settings)
+        
+        
+        let chart = Chart(
+            frame: chartFrame,
+            innerFrame: innerFrame,
+            settings: chartSettings,
+            layers: [
+                xAxisLayer,
+                yAxisLayer,
+                guidelinesLayer,
+                showCoordsLinesLayer,
+                chartPointsLineLayer,
+                chartPointsCircleLayer,
+                showCoordsTextLayer,
+                touchLayer,
+                
+                ]
         )
         
         self.containerView.addSubview(chart.view)
+    }
+
+    func chartFrame(_ containerBounds: CGRect) -> CGRect {
+        return CGRect(x: 0, y: 70, width: containerBounds.size.width, height: containerBounds.size.height - 70)
+    }
+}
+
+extension String {
+    
+    func size(_ font: UIFont) -> CGSize {
+        return NSAttributedString(string: self, attributes: [.font: font]).size()
+    }
+    
+    func width(_ font: UIFont) -> CGFloat {
+        return size(font).width
+    }
+    
+    func height(_ font: UIFont) -> CGFloat {
+        return size(font).height
+    }
+}
+
+struct ExamplesDefaults {
+    
+    static var chartSettings: ChartSettings {
+        return iPhoneChartSettings
+    }
+    
+    static var chartSettingsWithPanZoom: ChartSettings {
+        return iPhoneChartSettingsWithPanZoom
+    }
+    
+    fileprivate static var iPhoneChartSettings: ChartSettings {
+        var chartSettings = ChartSettings()
+        chartSettings.leading = 10
+        chartSettings.top = 10
+        chartSettings.trailing = 10
+        chartSettings.bottom = 10
+        chartSettings.labelsToAxisSpacingX = 5
+        chartSettings.labelsToAxisSpacingY = 5
+        chartSettings.axisTitleLabelsToLabelsSpacing = 4
+        chartSettings.axisStrokeWidth = 0.2
+        chartSettings.spacingBetweenAxesX = 8
+        chartSettings.spacingBetweenAxesY = 8
+        chartSettings.labelsSpacing = 0
+        return chartSettings
+    }
+    
+    fileprivate static var iPhoneChartSettingsWithPanZoom: ChartSettings {
+        var chartSettings = iPhoneChartSettings
+        chartSettings.zoomPan.panEnabled = true
+        chartSettings.zoomPan.zoomEnabled = true
+        return chartSettings
+    }
+    
+    static func chartFrame(_ containerBounds: CGRect) -> CGRect {
+        return CGRect(x: 0, y: 0, width: containerBounds.size.width, height: containerBounds.size.height - 0)
+    }
+    
+    static var labelSettings: ChartLabelSettings {
+        return ChartLabelSettings(font: ExamplesDefaults.labelFont)
+    }
+    
+    static var labelFont: UIFont {
+        return ExamplesDefaults.fontWithSize(11)
+    }
+    
+    static var labelFontSmall: UIFont {
+        return ExamplesDefaults.fontWithSize(10)
+    }
+    
+    static func fontWithSize(_ size: CGFloat) -> UIFont {
+        return UIFont(name: "Helvetica", size: size) ?? UIFont.systemFont(ofSize: size)
+    }
+    
+    static var guidelinesWidth: CGFloat {
+        return 0.1
+    }
+    
+    static var minBarSpacing: CGFloat {
+        return 5
     }
 }

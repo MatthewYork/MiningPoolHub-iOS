@@ -161,6 +161,7 @@ extension AccountTableViewController {
         if let walletData = userResponse?.wallet_data.first(where: { (data: MphsWalletData) -> Bool in
             return data.coin == autoExchange.description()
         }) {
+            cell.resetPulse()
             cell.containerView.isHidden = false
             cell.setContent(walletData: walletData, currency: currency)
         }
