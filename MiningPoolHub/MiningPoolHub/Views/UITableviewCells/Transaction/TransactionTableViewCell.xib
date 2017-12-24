@@ -24,6 +24,11 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="129.5" id="uj8-Wa-clb"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="huR-nT-Aye">
                         <rect key="frame" x="15" y="5" width="345" height="129.5"/>
@@ -89,16 +94,22 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirmed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xUA-Cw-vgO">
                                         <rect key="frame" x="5" y="3" width="59.5" height="14.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.93999999999999995" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="xUA-Cw-vgO" firstAttribute="leading" secondItem="tqc-Hl-afG" secondAttribute="leading" constant="5" id="1R1-wA-izj"/>
                                     <constraint firstItem="xUA-Cw-vgO" firstAttribute="top" secondItem="tqc-Hl-afG" secondAttribute="top" constant="3" id="ICK-EK-udC"/>
                                     <constraint firstAttribute="trailing" secondItem="xUA-Cw-vgO" secondAttribute="trailing" constant="5" id="ODr-yu-rFd"/>
                                     <constraint firstAttribute="bottom" secondItem="xUA-Cw-vgO" secondAttribute="bottom" constant="3" id="hHz-J8-Kfj"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.93999999999999995" alpha="1" colorSpace="calibratedWhite"/>
@@ -123,6 +134,11 @@
                             <constraint firstItem="QPV-l0-z7y" firstAttribute="leading" secondItem="huR-nT-Aye" secondAttribute="leading" constant="10" id="tak-nO-9Sd"/>
                             <constraint firstItem="tqc-Hl-afG" firstAttribute="leading" secondItem="huR-nT-Aye" secondAttribute="leading" constant="10" id="zcg-2D-df4"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <constraints>

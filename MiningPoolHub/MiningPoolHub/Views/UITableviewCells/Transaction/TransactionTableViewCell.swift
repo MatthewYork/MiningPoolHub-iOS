@@ -43,18 +43,15 @@ class TransactionTableViewCell: PulsableTableViewCell {
         guard let confirmations = transaction.confirmations else {
             if transaction.type == "Debit_AE" {
                 confirmedLabel.text = "Confirmed"
-                confirmedView.backgroundColor = UIColor(red: 230.0/255.0, green: 239.0/255.0, blue: 194.0/255.0, alpha: 1)
             }
             else {
                 confirmedLabel.text = "Unconfirmed"
-                confirmedView.backgroundColor = UIColor(red: 255.0/255.0, green: 206.0/255.0, blue: 156.0/255.0, alpha: 1)
             }
             
             return
         }
         
         confirmedLabel.text = confirmations > 0 ? "\(confirmations) Confirmations" : "Unconfirmed"
-        confirmedView.backgroundColor = confirmations > 0 ? UIColor(red: 230.0/255.0, green: 239.0/255.0, blue: 194.0/255.0, alpha: 1) : UIColor(red: 255.0/255.0, green: 206.0/255.0, blue: 156.0/255.0, alpha: 1)
     }
     
     func setConfirmationType(for transaction: MphUserTransaction) {
