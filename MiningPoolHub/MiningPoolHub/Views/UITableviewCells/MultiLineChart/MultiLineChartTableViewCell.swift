@@ -8,6 +8,7 @@
 import UIKit
 import MiningPoolHub_Swift
 import SwiftCharts
+import DateToolsSwift
 
 class MultiLineChartTableViewCell: PulsableTableViewCell {
 
@@ -25,10 +26,19 @@ class MultiLineChartTableViewCell: PulsableTableViewCell {
         // Configure the view for the selected state
     }
     
-    func setContent(walletData: MphsWalletData, currency: MphsCurrency) {
+    func setContent(walletData: MphsWalletData, currency: MphsCurrency, conversionData: MphsConversionData) {
         let labelSettings = ChartLabelSettings(font: ExamplesDefaults.labelFont)
         
-        let chartPoints = [(2, 2), (3, 1), (5, 9), (6, 7), (8, 10), (9, 9), (10, 15), (13, 8), (15, 20), (16, 17)].map{ChartPoint(x: ChartAxisValueInt($0.0), y: ChartAxisValueInt($0.1))}
+        var index = 0
+        let formatter = DateFormatter(withFormat: "", locale: "UCT")
+        let chartPoints = walletData.earning_history.map { (credit: MphRecentCredit) -> ChartPoint in
+            print(credit.date)
+            //let date = formatter.date(from: credit.date)
+            index += 1
+            return ChartPoint(x: ChartAxisValueInt(index), y: ChartAxisValueDouble(credit.amount))
+        }
+        
+        //let chartPoints = [(2, 2), (3, 1), (5, 9), (6, 7), (8, 10), (9, 9), (10, 15), (13, 8), (15, 20), (16, 17)].map{ChartPoint(x: ChartAxisValueInt($0.0), y: ChartAxisValueInt($0.1))}
         
         let xValues = ChartAxisValuesStaticGenerator.generateXAxisValuesWithChartPoints(chartPoints, minSegmentCount: 7, maxSegmentCount: 7, multiple: 2, axisValueGenerator: {ChartAxisValueDouble($0, labelSettings: labelSettings)}, addPaddingSegmentIfEdge: false)
         let yValues = ChartAxisValuesStaticGenerator.generateYAxisValuesWithChartPoints(chartPoints, minSegmentCount: 10, maxSegmentCount: 20, multiple: 2, axisValueGenerator: {ChartAxisValueDouble($0, labelSettings: labelSettings)}, addPaddingSegmentIfEdge: true)
