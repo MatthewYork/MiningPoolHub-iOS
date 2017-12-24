@@ -48,6 +48,8 @@
 		F0D1F6471FE8AFC400C346B4 /* MiningPoolHubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D1F6461FE8AFC400C346B4 /* MiningPoolHubTests.swift */; };
 		F0D1F6521FE8AFC400C346B4 /* MiningPoolHubUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D1F6511FE8AFC400C346B4 /* MiningPoolHubUITests.swift */; };
 		F0E57C661FEF3D0E00C6298F /* TransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0E57C651FEF3D0E00C6298F /* TransactionTableViewCell.xib */; };
+		F0E57C6A1FEF77D400C6298F /* MultiLineChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E57C681FEF77D400C6298F /* MultiLineChartTableViewCell.swift */; };
+		F0E57C6B1FEF77D400C6298F /* MultiLineChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0E57C691FEF77D400C6298F /* MultiLineChartTableViewCell.xib */; };
 		F20F7577EA25FAF177EAFD2A /* Pods_MiningPoolHubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0385E8CE382419DFA44E7D2 /* Pods_MiningPoolHubUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -123,6 +125,8 @@
 		F0D1F6511FE8AFC400C346B4 /* MiningPoolHubUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiningPoolHubUITests.swift; sourceTree = "<group>"; };
 		F0D1F6531FE8AFC400C346B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F0E57C651FEF3D0E00C6298F /* TransactionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionTableViewCell.xib; sourceTree = "<group>"; };
+		F0E57C681FEF77D400C6298F /* MultiLineChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiLineChartTableViewCell.swift; sourceTree = "<group>"; };
+		F0E57C691FEF77D400C6298F /* MultiLineChartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MultiLineChartTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -348,6 +352,7 @@
 		F00D685B1FE9FE9F003C80C2 /* UITableviewCells */ = {
 			isa = PBXGroup;
 			children = (
+				F0E57C671FEF77BC00C6298F /* MultiLineChart */,
 				F004B21F1FEEFCD20017ECFF /* Transaction */,
 				F004B1DF1FEB70A50017ECFF /* WorkerCollection */,
 				F004B1DB1FEB600F0017ECFF /* Pulsable */,
@@ -501,6 +506,15 @@
 			path = MiningPoolHubUITests;
 			sourceTree = "<group>";
 		};
+		F0E57C671FEF77BC00C6298F /* MultiLineChart */ = {
+			isa = PBXGroup;
+			children = (
+				F0E57C681FEF77D400C6298F /* MultiLineChartTableViewCell.swift */,
+				F0E57C691FEF77D400C6298F /* MultiLineChartTableViewCell.xib */,
+			);
+			path = MultiLineChart;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -627,6 +641,7 @@
 				F0E57C661FEF3D0E00C6298F /* TransactionTableViewCell.xib in Resources */,
 				F004B1E71FEB71D50017ECFF /* WorkerCollectionViewCell.xib in Resources */,
 				F00D68931FEB0849003C80C2 /* EstimatesTableViewCell.xib in Resources */,
+				F0E57C6B1FEF77D400C6298F /* MultiLineChartTableViewCell.xib in Resources */,
 				F004B2151FEEF09C0017ECFF /* AuthenticateViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -674,6 +689,7 @@
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MiningPoolHub-Swift/MiningPoolHub_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftCharts/SwiftCharts.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -681,6 +697,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MiningPoolHub_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftCharts.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -824,6 +841,7 @@
 				F004B2271FEF111B0017ECFF /* PoolsTableViewController.swift in Sources */,
 				F004B2181FEEF7110017ECFF /* LeftImageSectionHeader.swift in Sources */,
 				F00D68691FEA0A8D003C80C2 /* ProfitStatisticsViewController.swift in Sources */,
+				F0E57C6A1FEF77D400C6298F /* MultiLineChartTableViewCell.swift in Sources */,
 				F004B1DD1FEB60230017ECFF /* PulsableTableViewCell.swift in Sources */,
 				F004B20F1FEEE95B0017ECFF /* AuthenticationErrors.swift in Sources */,
 				F00D68951FEB1C72003C80C2 /* CurrencyFormattedNumber.swift in Sources */,

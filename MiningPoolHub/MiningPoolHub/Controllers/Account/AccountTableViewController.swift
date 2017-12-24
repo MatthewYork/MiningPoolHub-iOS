@@ -48,6 +48,7 @@ class AccountTableViewController: UITableViewController {
     func registerCells() {
         tableView.register(UINib(nibName: "EstimatesTableViewCell", bundle: nil), forCellReuseIdentifier: "EstimatesTableViewCell")
         tableView.register(UINib(nibName: "WorkerCollectionTableViewCell", bundle: nil), forCellReuseIdentifier: "WorkerCollectionTableViewCell")
+        tableView.register(UINib(nibName: "MultiLineChartTableViewCell", bundle: nil), forCellReuseIdentifier: "MultiLineChartTableViewCell")
     }
     
     func setupTable() {
@@ -133,7 +134,7 @@ extension AccountTableViewController {
 
 extension AccountTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -142,11 +143,33 @@ extension AccountTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
-        case 0: return estimatesCell(indexPath: indexPath)
-        case 1: return workersCell(indexPath: indexPath)
+        case 0: return earningsHistoryCell(indexPath: indexPath)
+        case 1: return estimatesCell(indexPath: indexPath)
+        case 2: return workersCell(indexPath: indexPath)
         default:
             return tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
         }
+    }
+    
+    func earningsHistoryCell(indexPath: IndexPath) -> MultiLineChartTableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MultiLineChartTableViewCell", for: indexPath) as! MultiLineChartTableViewCell
+        
+        guard let autoExchangeString: String = defaultsManager.get(scope: "accountSettings", key: "autoExchange") else {return cell}
+        guard let autoExchange = MphDomain(string: autoExchangeString) else { return cell }
+        
+        
+        if let walletData = userResponse?.wallet_data.first(where: { (data: MphsWalletData) -> Bool in
+            return data.coin == autoExchange.description()
+        }) {
+            cell.containerView.isHidden = false
+            cell.setContent(walletData: walletData, currency: currency)
+        }
+        else {
+            cell.resetPulse()
+            cell.animatePulseView()
+            cell.containerView.isHidden = true
+        }
+        return cell
     }
     
     func estimatesCell(indexPath: IndexPath) -> EstimatesTableViewCell {
