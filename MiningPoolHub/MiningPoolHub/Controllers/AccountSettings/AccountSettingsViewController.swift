@@ -13,11 +13,13 @@ class AccountSettingsViewController: UIViewController {
     //Variables
     let provider: MphWebProvider
     let defaultsManager: UserDefaultsManager
+    var autoExchange: MphDomain = MphDomain.bitcoin
     
     //Outlets
     @IBOutlet weak var apiKeyTextField: UITextField!
     @IBOutlet weak var biometricIdLabel: UILabel!
     @IBOutlet weak var biometricSwitch: UISwitch!
+    @IBOutlet weak var autoExchangeButton: UIButton!
     
     init(provider: MphWebProvider, defaultsManager: UserDefaultsManager) {
         self.provider = provider
@@ -40,6 +42,7 @@ class AccountSettingsViewController: UIViewController {
     func initializeStoredValues() {
         initializeApiKey()
         initializeBiometrics()
+        initializeAutoExchange()
     }
     
     func initializeApiKey() {
@@ -63,11 +66,24 @@ class AccountSettingsViewController: UIViewController {
         let biometricsOn = defaultsManager.get(scope: "accountSettings", key: "accountProtection") ?? false
         biometricSwitch.setOn(biometricsOn, animated: false)
     }
+    
+    func initializeAutoExchange() {
+        let autoExchangeString = defaultsManager.get(scope: "accountSettings", key: "autoExchange") ?? "bitcoin"
+        guard let autoExchange = MphDomain(string: autoExchangeString) else { return }
+        
+        autoExchangeButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.left
+        autoExchangeButton.setTitle(autoExchange.description(), for: UIControlState.normal)
+    }
 
     func addBarButtons() {
         //Add right bar button
         let rightBarButton = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(didSelectSave))
         navigationItem.rightBarButtonItem = rightBarButton
+    }
+    
+    //MARK: - Actions
+    @IBAction func didSelectAutoExchange() {
+        selectAutoExchange()
     }
 }
 
@@ -75,6 +91,36 @@ extension AccountSettingsViewController : UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+
+extension AccountSettingsViewController {
+    func selectAutoExchange() {
+        let alert = UIAlertController(title: "Change Auto-Exchange Currency", message: "Which currency do you use for auto-exchange?", preferredStyle: .actionSheet)
+        alert.view.tintColor = UIColor.black
+        
+        //Add cancel
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+        
+        //Add enum values
+        var rawValue = 0
+        while let domain = MphDomain(rawValue: rawValue) {
+            if domain.description() == "" { rawValue += 1; continue }
+            
+            alert.addAction(UIAlertAction(title: domain.description(), style: UIAlertActionStyle.default, handler: { action in
+                
+                //Gather new criteria
+                guard let actionTitle = action.title else { return }
+                guard let newDomain = MphDomain(string: actionTitle) else { return }
+                
+                //Reload on new criteria
+                self.autoExchange = newDomain
+                self.autoExchangeButton.setTitle(actionTitle, for: UIControlState.normal)
+            }) )
+            rawValue += 1
+        }
+        
+        present(alert, animated: true, completion: nil)
     }
 }
 
@@ -92,7 +138,7 @@ extension AccountSettingsViewController {
     }
     
     func saveSettings() -> Bool {
-        return saveApiKey() && saveBiometry()
+        return saveApiKey() && saveBiometry() && saveAutoExchange()
     }
     
     func saveApiKey() -> Bool {
@@ -104,5 +150,9 @@ extension AccountSettingsViewController {
     
     func saveBiometry() -> Bool {
         return defaultsManager.set(scope: "accountSettings", key: "accountProtection", value: biometricSwitch.isOn)
+    }
+    
+    func saveAutoExchange() -> Bool {
+        return defaultsManager.set(scope: "accountSettings", key: "autoExchange", value: autoExchange.description())
     }
 }

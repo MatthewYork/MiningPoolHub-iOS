@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AccountSettingsViewController" customModule="MiningPoolHub" customModuleProvider="target">
             <connections>
                 <outlet property="apiKeyTextField" destination="WfO-5a-yZO" id="LTp-ay-Ere"/>
+                <outlet property="autoExchangeButton" destination="h5P-Ub-pec" id="fSK-VW-QaP"/>
                 <outlet property="biometricIdLabel" destination="yTe-Ka-R6n" id="efT-az-kim"/>
                 <outlet property="biometricSwitch" destination="V23-Ax-oNR" id="qlw-x6-gyB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -64,20 +65,20 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RBO-Nq-arz">
-                    <rect key="frame" x="15" y="102" width="344" height="57.5"/>
+                    <rect key="frame" x="15" y="95" width="344" height="57.5"/>
                     <string key="text">Your API Key can be found on the "Edit Account" page of miningpoolhub.com. It cannot be copied in mobile Safari, so consider copying it from another machine and emailing it to yourself.</string>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Protection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ry8-Q6-Fk2">
-                    <rect key="frame" x="50" y="194" width="199.5" height="26.5"/>
+                    <rect key="frame" x="50" y="177" width="199.5" height="26.5"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IU2-5y-QSa">
-                    <rect key="frame" x="15" y="225" width="345" height="44"/>
+                    <rect key="frame" x="15" y="208" width="345" height="44"/>
                     <subviews>
                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="V23-Ax-oNR">
                             <rect key="frame" x="281" y="7" width="51" height="31"/>
@@ -106,30 +107,86 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shield-pdf" translatesAutoresizingMaskIntoConstraints="NO" id="bLU-i8-S5w">
-                    <rect key="frame" x="15" y="194.5" width="25" height="25"/>
+                    <rect key="frame" x="15" y="177.5" width="25" height="25"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="25" id="FGv-A1-lht"/>
                         <constraint firstAttribute="height" constant="25" id="SpW-uL-bBs"/>
                     </constraints>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Auto-Exchange Currency" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vbc-5D-UR8">
+                    <rect key="frame" x="50" y="277" width="261" height="26.5"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7e7-4v-uzQ">
+                    <rect key="frame" x="15" y="308" width="345" height="44"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h5P-Ub-pec">
+                            <rect key="frame" x="8" y="2" width="329" height="40"/>
+                            <state key="normal" title="Button">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="didSelectAutoExchange" destination="-1" eventType="touchUpInside" id="0Qh-Cc-Onh"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.93999999999999995" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="h5P-Ub-pec" firstAttribute="leading" secondItem="7e7-4v-uzQ" secondAttribute="leading" constant="8" id="5we-4f-Cqe"/>
+                        <constraint firstAttribute="height" constant="44" id="D8N-7u-Hmu"/>
+                        <constraint firstItem="h5P-Ub-pec" firstAttribute="top" secondItem="7e7-4v-uzQ" secondAttribute="top" constant="2" id="lc6-FN-T9U"/>
+                        <constraint firstAttribute="bottom" secondItem="h5P-Ub-pec" secondAttribute="bottom" constant="2" id="tbS-Zv-YPv"/>
+                        <constraint firstAttribute="trailing" secondItem="h5P-Ub-pec" secondAttribute="trailing" constant="8" id="zWJ-fT-2vE"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exchange-pdf" translatesAutoresizingMaskIntoConstraints="NO" id="xd5-97-fVN">
+                    <rect key="frame" x="15" y="277" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="ZA0-Kn-HBP"/>
+                        <constraint firstAttribute="height" constant="25" id="so5-Hf-yFi"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Knowing the auto-exchange currency will help with aggregate and time-based analysis" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kd5-H6-nUL">
+                    <rect key="frame" x="15" y="362" width="345" height="29"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="RBO-Nq-arz" secondAttribute="trailing" constant="16" id="5zn-U0-mxf"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="IU2-5y-QSa" secondAttribute="trailing" constant="15" id="9j1-lu-3g8"/>
+                <constraint firstItem="Kd5-H6-nUL" firstAttribute="top" secondItem="7e7-4v-uzQ" secondAttribute="bottom" constant="10" id="AtE-aK-Hd2"/>
+                <constraint firstItem="xd5-97-fVN" firstAttribute="top" secondItem="IU2-5y-QSa" secondAttribute="bottom" constant="25" id="BAO-eL-5JO"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Kd5-H6-nUL" secondAttribute="trailing" constant="15" id="JFG-3U-2y7"/>
+                <constraint firstItem="7e7-4v-uzQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="JP4-ao-yol"/>
+                <constraint firstItem="7e7-4v-uzQ" firstAttribute="top" secondItem="vbc-5D-UR8" secondAttribute="bottom" constant="5" id="LMb-wY-9at"/>
+                <constraint firstItem="vbc-5D-UR8" firstAttribute="leading" secondItem="xd5-97-fVN" secondAttribute="trailing" constant="10" id="NYL-z8-f56"/>
                 <constraint firstItem="bLU-i8-S5w" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="Tgq-vQ-Zv9"/>
                 <constraint firstItem="qi0-ng-ug3" firstAttribute="leading" secondItem="Oty-4t-E0t" secondAttribute="trailing" constant="10" id="UOG-D0-ank"/>
                 <constraint firstItem="ry8-Q6-Fk2" firstAttribute="leading" secondItem="bLU-i8-S5w" secondAttribute="trailing" constant="10" id="Udy-LR-ynK"/>
+                <constraint firstItem="xd5-97-fVN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="WFv-kC-D7I"/>
                 <constraint firstItem="Kp2-lW-MFU" firstAttribute="top" secondItem="qi0-ng-ug3" secondAttribute="bottom" constant="5" id="WPw-mw-9MF"/>
                 <constraint firstItem="IU2-5y-QSa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="Zr6-fn-mdx"/>
                 <constraint firstItem="Kp2-lW-MFU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="b1v-d2-wJa"/>
-                <constraint firstItem="RBO-Nq-arz" firstAttribute="top" secondItem="Kp2-lW-MFU" secondAttribute="bottom" constant="16.5" id="bLk-vl-Gbu"/>
+                <constraint firstItem="RBO-Nq-arz" firstAttribute="top" secondItem="Kp2-lW-MFU" secondAttribute="bottom" constant="10" id="bLk-vl-Gbu"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="7e7-4v-uzQ" secondAttribute="trailing" constant="15" id="eBA-2u-ydG"/>
                 <constraint firstItem="Oty-4t-E0t" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="eLY-9V-4r0"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Kp2-lW-MFU" secondAttribute="trailing" constant="15" id="eZE-8h-yGy"/>
                 <constraint firstItem="RBO-Nq-arz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="fCp-4i-xP1"/>
                 <constraint firstItem="qi0-ng-ug3" firstAttribute="centerY" secondItem="Oty-4t-E0t" secondAttribute="centerY" id="fmA-OV-vxd"/>
-                <constraint firstItem="bLU-i8-S5w" firstAttribute="top" secondItem="RBO-Nq-arz" secondAttribute="bottom" constant="35" id="fuA-HM-xvt"/>
+                <constraint firstItem="bLU-i8-S5w" firstAttribute="top" secondItem="RBO-Nq-arz" secondAttribute="bottom" constant="25" id="fuA-HM-xvt"/>
                 <constraint firstItem="Oty-4t-E0t" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="kEC-bD-qGB"/>
+                <constraint firstItem="Kd5-H6-nUL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="kRt-Cg-La0"/>
+                <constraint firstItem="vbc-5D-UR8" firstAttribute="centerY" secondItem="xd5-97-fVN" secondAttribute="centerY" id="ui3-ga-c8M"/>
                 <constraint firstItem="ry8-Q6-Fk2" firstAttribute="centerY" secondItem="bLU-i8-S5w" secondAttribute="centerY" id="ygK-Ho-dmf"/>
                 <constraint firstItem="IU2-5y-QSa" firstAttribute="top" secondItem="ry8-Q6-Fk2" secondAttribute="bottom" constant="5" id="zTr-Ce-q59"/>
             </constraints>
@@ -138,6 +195,7 @@
         </view>
     </objects>
     <resources>
+        <image name="exchange-pdf" width="50" height="50"/>
         <image name="key-pdf" width="50" height="50"/>
         <image name="shield-pdf" width="50" height="50"/>
     </resources>
