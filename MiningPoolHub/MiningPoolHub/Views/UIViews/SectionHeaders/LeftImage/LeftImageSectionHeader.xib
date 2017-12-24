@@ -16,8 +16,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFE-DG-zrE">
-                    <rect key="frame" x="50" y="19" width="310" height="26.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFE-DG-zrE">
+                    <rect key="frame" x="50" y="19" width="45.5" height="26.5"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -29,19 +29,31 @@
                         <constraint firstAttribute="width" constant="25" id="fpv-xY-3YD"/>
                     </constraints>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bA6-tQ-wNZ">
+                    <rect key="frame" x="294" y="19" width="66" height="27"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal" title="AUXILLARY">
+                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="didTapAuxillaryButton" destination="iN0-l3-epB" eventType="touchUpInside" id="qCH-3Y-bok"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="PFE-DG-zrE" firstAttribute="leading" secondItem="Acw-6z-fao" secondAttribute="trailing" constant="10" id="NyT-Ra-1HI"/>
                 <constraint firstItem="PFE-DG-zrE" firstAttribute="centerY" secondItem="Acw-6z-fao" secondAttribute="centerY" id="WgS-yc-fG6"/>
                 <constraint firstItem="Acw-6z-fao" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="WjF-GA-jro"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="PFE-DG-zrE" secondAttribute="trailing" constant="15" id="fJm-uS-ZiT"/>
+                <constraint firstItem="bA6-tQ-wNZ" firstAttribute="centerY" secondItem="PFE-DG-zrE" secondAttribute="centerY" id="k4X-9y-Sjk"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="bA6-tQ-wNZ" secondAttribute="trailing" constant="15" id="lGD-kH-tYh"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Acw-6z-fao" secondAttribute="bottom" constant="9" id="pzo-cU-0jG"/>
                 <constraint firstItem="Acw-6z-fao" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="tkq-ZK-nlm"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="auxillaryButton" destination="bA6-tQ-wNZ" id="qtG-b9-9hc"/>
                 <outlet property="imageView" destination="Acw-6z-fao" id="Yrr-a4-ytK"/>
                 <outlet property="titleLabel" destination="PFE-DG-zrE" id="TBp-jQ-Bot"/>
             </connections>

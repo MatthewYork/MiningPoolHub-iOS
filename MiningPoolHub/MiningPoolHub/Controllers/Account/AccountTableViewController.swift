@@ -14,7 +14,6 @@ class AccountTableViewController: UITableViewController {
     let provider: MphWebProvider
     let defaultsManager: UserDefaultsManager
     var userResponse: MphsResponse?
-    var transactionsResponse: MphUserTransactionsResponse?
     var currency: MphsCurrency = MphsCurrency.usd
     var viewHasLoaded = false //Necessary for preview shimmer
     
@@ -129,16 +128,6 @@ extension AccountTableViewController {
         }) { (error: Error) in
             //handle error
         }
-        
-        //Get transactions
-        let _ = provider.getUserTransactions(id: nil, completion: { (response: MphUserTransactionsResponse) in
-            self.transactionsResponse = response
-            self.tableView.reloadData()
-            self.tableView.refreshControl?.endRefreshing()
-            
-        }) { (error: Error) in
-            //handle error
-        }
     }
 }
 
@@ -148,28 +137,7 @@ extension AccountTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0,1: return 1
-        case 2: return transactionsResponse?.transactions.data?.transactions.count ?? 0
-        default: return 0
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        switch section {
-        case 2:
-            let header = LeftImageSectionHeader.fromNib()
-            header.setContent(image: UIImage(named: "exchange-pdf"), title: "Transactions")
-            return header
-        default: return UIView()
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        switch section {
-        case 2: return UITableViewAutomaticDimension
-        default: return 0.001
-        }
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

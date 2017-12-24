@@ -60,12 +60,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate {
     func setupTabBar(provider: MphWebProvider, defaultsManager: UserDefaultsManager) {
-        
+        //Create independent pool provider
+        let apiKey = defaultsManager.get(scope: "accountSettings", key: "apiKey") ?? ""
+        let poolProvider = MphWebProvider(configuration: MphDefaultConfiguration(apiKey: apiKey))
         
         //Set tabs
         tabBarController.viewControllers = [
             MphNavigationController(rootViewController: ProfitStatisticsViewController(provider: provider, defaultsManager: defaultsManager)),
             MphNavigationController(rootViewController: UserBalancesTableViewController(provider: provider, defaultsManager: defaultsManager)),
+            MphNavigationController(rootViewController: PoolsTableViewController(provider: poolProvider, defaultsManager: defaultsManager)),
             MphNavigationController(rootViewController: AccountTableViewController(provider: provider, defaultsManager: defaultsManager))
         ]
         

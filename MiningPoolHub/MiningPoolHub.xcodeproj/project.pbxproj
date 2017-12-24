@@ -27,7 +27,7 @@
 		F004B21B1FEEF72F0017ECFF /* LeftImageSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = F004B21A1FEEF72F0017ECFF /* LeftImageSectionHeader.xib */; };
 		F004B21E1FEEF7EC0017ECFF /* ViewFromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = F004B21D1FEEF7EC0017ECFF /* ViewFromNib.swift */; };
 		F004B2221FEEFCE50017ECFF /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F004B2201FEEFCE50017ECFF /* TransactionTableViewCell.swift */; };
-		F004B2231FEEFCE50017ECFF /* TransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F004B2211FEEFCE50017ECFF /* TransactionTableViewCell.xib */; };
+		F004B2271FEF111B0017ECFF /* PoolsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F004B2251FEF111B0017ECFF /* PoolsTableViewController.swift */; };
 		F00D68661FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00D68641FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.swift */; };
 		F00D68671FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F00D68651FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.xib */; };
 		F00D68691FEA0A8D003C80C2 /* ProfitStatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00D68681FEA0A8D003C80C2 /* ProfitStatisticsViewController.swift */; };
@@ -47,6 +47,7 @@
 		F0D1F63C1FE8AFC400C346B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0D1F63A1FE8AFC400C346B4 /* LaunchScreen.storyboard */; };
 		F0D1F6471FE8AFC400C346B4 /* MiningPoolHubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D1F6461FE8AFC400C346B4 /* MiningPoolHubTests.swift */; };
 		F0D1F6521FE8AFC400C346B4 /* MiningPoolHubUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D1F6511FE8AFC400C346B4 /* MiningPoolHubUITests.swift */; };
+		F0E57C661FEF3D0E00C6298F /* TransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0E57C651FEF3D0E00C6298F /* TransactionTableViewCell.xib */; };
 		F20F7577EA25FAF177EAFD2A /* Pods_MiningPoolHubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0385E8CE382419DFA44E7D2 /* Pods_MiningPoolHubUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -95,7 +96,7 @@
 		F004B21A1FEEF72F0017ECFF /* LeftImageSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftImageSectionHeader.xib; sourceTree = "<group>"; };
 		F004B21D1FEEF7EC0017ECFF /* ViewFromNib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewFromNib.swift; sourceTree = "<group>"; };
 		F004B2201FEEFCE50017ECFF /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
-		F004B2211FEEFCE50017ECFF /* TransactionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionTableViewCell.xib; sourceTree = "<group>"; };
+		F004B2251FEF111B0017ECFF /* PoolsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolsTableViewController.swift; sourceTree = "<group>"; };
 		F00D68641FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfitStatisticsTableViewCell.swift; sourceTree = "<group>"; };
 		F00D68651FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfitStatisticsTableViewCell.xib; sourceTree = "<group>"; };
 		F00D68681FEA0A8D003C80C2 /* ProfitStatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfitStatisticsViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +122,7 @@
 		F0D1F64D1FE8AFC400C346B4 /* MiningPoolHubUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiningPoolHubUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0D1F6511FE8AFC400C346B4 /* MiningPoolHubUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiningPoolHubUITests.swift; sourceTree = "<group>"; };
 		F0D1F6531FE8AFC400C346B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0E57C651FEF3D0E00C6298F /* TransactionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,14 +300,23 @@
 			isa = PBXGroup;
 			children = (
 				F004B2201FEEFCE50017ECFF /* TransactionTableViewCell.swift */,
-				F004B2211FEEFCE50017ECFF /* TransactionTableViewCell.xib */,
+				F0E57C651FEF3D0E00C6298F /* TransactionTableViewCell.xib */,
 			);
 			path = Transaction;
+			sourceTree = "<group>";
+		};
+		F004B2241FEF10FB0017ECFF /* Pools */ = {
+			isa = PBXGroup;
+			children = (
+				F004B2251FEF111B0017ECFF /* PoolsTableViewController.swift */,
+			);
+			path = Pools;
 			sourceTree = "<group>";
 		};
 		F00D68581FE9FE82003C80C2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F004B2241FEF10FB0017ECFF /* Pools */,
 				F004B2111FEEF08A0017ECFF /* Authenticate */,
 				F00D688C1FEAECA9003C80C2 /* Account */,
 				F004B1F01FEED19D0017ECFF /* AccountSettings */,
@@ -613,9 +624,9 @@
 				F004B1F41FEED1BA0017ECFF /* AccountSettingsViewController.xib in Resources */,
 				F004B21B1FEEF72F0017ECFF /* LeftImageSectionHeader.xib in Resources */,
 				F0D1F6391FE8AFC400C346B4 /* Assets.xcassets in Resources */,
+				F0E57C661FEF3D0E00C6298F /* TransactionTableViewCell.xib in Resources */,
 				F004B1E71FEB71D50017ECFF /* WorkerCollectionViewCell.xib in Resources */,
 				F00D68931FEB0849003C80C2 /* EstimatesTableViewCell.xib in Resources */,
-				F004B2231FEEFCE50017ECFF /* TransactionTableViewCell.xib in Resources */,
 				F004B2151FEEF09C0017ECFF /* AuthenticateViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -810,6 +821,7 @@
 				F004B2221FEEFCE50017ECFF /* TransactionTableViewCell.swift in Sources */,
 				F00D68921FEB0849003C80C2 /* EstimatesTableViewCell.swift in Sources */,
 				F004B2141FEEF09C0017ECFF /* AuthenticateViewController.swift in Sources */,
+				F004B2271FEF111B0017ECFF /* PoolsTableViewController.swift in Sources */,
 				F004B2181FEEF7110017ECFF /* LeftImageSectionHeader.swift in Sources */,
 				F00D68691FEA0A8D003C80C2 /* ProfitStatisticsViewController.swift in Sources */,
 				F004B1DD1FEB60230017ECFF /* PulsableTableViewCell.swift in Sources */,
