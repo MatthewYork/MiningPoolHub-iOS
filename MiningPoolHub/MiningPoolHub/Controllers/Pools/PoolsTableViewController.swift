@@ -180,6 +180,7 @@ extension PoolsTableViewController {
 extension PoolsTableViewController {
     @objc func loadData() {
         transactionsResponse = nil
+        poolInfoResponse = nil
         tableView.reloadData()
         
         //Get transactions
