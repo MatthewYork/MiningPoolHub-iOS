@@ -42,6 +42,8 @@
 		F00D68921FEB0849003C80C2 /* EstimatesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00D68901FEB0849003C80C2 /* EstimatesTableViewCell.swift */; };
 		F00D68931FEB0849003C80C2 /* EstimatesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F00D68911FEB0849003C80C2 /* EstimatesTableViewCell.xib */; };
 		F00D68951FEB1C72003C80C2 /* CurrencyFormattedNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00D68941FEB1C72003C80C2 /* CurrencyFormattedNumber.swift */; };
+		F04856471FF0DA3900DA0797 /* PoolInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04856451FF0DA3900DA0797 /* PoolInfoTableViewCell.swift */; };
+		F04856481FF0DA3900DA0797 /* PoolInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F04856461FF0DA3900DA0797 /* PoolInfoTableViewCell.xib */; };
 		F0D1F6321FE8AFC400C346B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D1F6311FE8AFC400C346B4 /* AppDelegate.swift */; };
 		F0D1F6391FE8AFC400C346B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0D1F6381FE8AFC400C346B4 /* Assets.xcassets */; };
 		F0D1F63C1FE8AFC400C346B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0D1F63A1FE8AFC400C346B4 /* LaunchScreen.storyboard */; };
@@ -113,6 +115,8 @@
 		F00D68901FEB0849003C80C2 /* EstimatesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimatesTableViewCell.swift; sourceTree = "<group>"; };
 		F00D68911FEB0849003C80C2 /* EstimatesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EstimatesTableViewCell.xib; sourceTree = "<group>"; };
 		F00D68941FEB1C72003C80C2 /* CurrencyFormattedNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormattedNumber.swift; sourceTree = "<group>"; };
+		F04856451FF0DA3900DA0797 /* PoolInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolInfoTableViewCell.swift; sourceTree = "<group>"; };
+		F04856461FF0DA3900DA0797 /* PoolInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PoolInfoTableViewCell.xib; sourceTree = "<group>"; };
 		F0D1F62E1FE8AFC400C346B4 /* MiningPoolHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiningPoolHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0D1F6311FE8AFC400C346B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0D1F6381FE8AFC400C346B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -352,6 +356,7 @@
 		F00D685B1FE9FE9F003C80C2 /* UITableviewCells */ = {
 			isa = PBXGroup;
 			children = (
+				F04856441FF0DA2300DA0797 /* Pool */,
 				F0E57C671FEF77BC00C6298F /* MultiLineChart */,
 				F004B21F1FEEFCD20017ECFF /* Transaction */,
 				F004B1DF1FEB70A50017ECFF /* WorkerCollection */,
@@ -447,6 +452,15 @@
 				F00D68911FEB0849003C80C2 /* EstimatesTableViewCell.xib */,
 			);
 			path = Estimates;
+			sourceTree = "<group>";
+		};
+		F04856441FF0DA2300DA0797 /* Pool */ = {
+			isa = PBXGroup;
+			children = (
+				F04856451FF0DA3900DA0797 /* PoolInfoTableViewCell.swift */,
+				F04856461FF0DA3900DA0797 /* PoolInfoTableViewCell.xib */,
+			);
+			path = Pool;
 			sourceTree = "<group>";
 		};
 		F0D1F6251FE8AFC400C346B4 = {
@@ -631,6 +645,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F004B1E31FEB70C30017ECFF /* WorkerCollectionTableViewCell.xib in Resources */,
+				F04856481FF0DA3900DA0797 /* PoolInfoTableViewCell.xib in Resources */,
 				F00D68671FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.xib in Resources */,
 				F0D1F63C1FE8AFC400C346B4 /* LaunchScreen.storyboard in Resources */,
 				F00D686E1FEA11DC003C80C2 /* ProfitStatisticsViewController.xib in Resources */,
@@ -833,6 +848,7 @@
 				F00D68661FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.swift in Sources */,
 				F004B1F31FEED1BA0017ECFF /* AccountSettingsViewController.swift in Sources */,
 				F004B21E1FEEF7EC0017ECFF /* ViewFromNib.swift in Sources */,
+				F04856471FF0DA3900DA0797 /* PoolInfoTableViewCell.swift in Sources */,
 				F00D686C1FEA0C57003C80C2 /* MphNavigationController.swift in Sources */,
 				F004B1E21FEB70C30017ECFF /* WorkerCollectionTableViewCell.swift in Sources */,
 				F004B2221FEEFCE50017ECFF /* TransactionTableViewCell.swift in Sources */,

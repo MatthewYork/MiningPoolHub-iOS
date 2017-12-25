@@ -13,6 +13,7 @@ class PoolsTableViewController: UITableViewController {
     //Variables
     let provider: MphWebProvider
     let defaultsManager: UserDefaultsManager
+    var poolInfoResponse: MphPoolInfoResponse?
     var transactionsResponse: MphUserTransactionsResponse?
     var domain: MphDomain = MphDomain.bitcoin
     
@@ -47,6 +48,7 @@ class PoolsTableViewController: UITableViewController {
     
     func registerCells() {
         tableView.register(UINib(nibName: "TransactionTableViewCell", bundle: nil), forCellReuseIdentifier: "TransactionTableViewCell")
+        tableView.register(UINib(nibName: "PoolInfoTableViewCell", bundle: nil), forCellReuseIdentifier: "PoolInfoTableViewCell")
     }
     
     func setupTable() {
@@ -75,20 +77,20 @@ class PoolsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0,1: return 0
-        case 2: return transactionsResponse?.transactions.data?.transactions.count ?? 5
+        case 0: return 1
+        case 1: return transactionsResponse?.transactions.data?.transactions.count ?? 5
         default: return 0
         }
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         switch section {
-        case 2:
+        case 1:
             let header = LeftImageSectionHeader.fromNib()
             header.setContent(image: UIImage(named: "exchange-pdf"), title: "Transactions")
             return header
@@ -98,17 +100,33 @@ class PoolsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch section {
-        case 2: return UITableViewAutomaticDimension
+        case 1: return UITableViewAutomaticDimension
         default: return 0.001
         }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
-        case 2: return transactionCell(indexPath: indexPath)
+        case 0: return poolInfoCell(indexPath: indexPath)
+        case 1: return transactionCell(indexPath: indexPath)
         default:
             return tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
         }
+    }
+    
+    func poolInfoCell(indexPath: IndexPath) -> PoolInfoTableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PoolInfoTableViewCell", for: indexPath) as! PoolInfoTableViewCell
+        
+        if let poolInfo = poolInfoResponse?.info.data {
+            cell.containerView.isHidden = false
+            cell.setContent(poolDetails: poolInfo)
+        }
+        else {
+            cell.resetPulse()
+            cell.animatePulseView()
+            cell.containerView.isHidden = true
+        }
+        return cell
     }
     
     func transactionCell(indexPath: IndexPath) -> TransactionTableViewCell {
@@ -170,6 +188,14 @@ extension PoolsTableViewController {
             self.tableView.reloadData()
             self.tableView.refreshControl?.endRefreshing()
             
+        }) { (error: Error) in
+            //handle error
+        }
+        
+        let _ = provider.getPoolInfo(completion: { (response: MphPoolInfoResponse) in
+            self.poolInfoResponse = response
+            self.tableView.reloadData()
+            self.tableView.refreshControl?.endRefreshing()
         }) { (error: Error) in
             //handle error
         }
