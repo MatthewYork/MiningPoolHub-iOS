@@ -30,18 +30,21 @@ class MultiLineChartTableViewCell: PulsableTableViewCell {
         let labelSettings = ChartLabelSettings(font: ExamplesDefaults.labelFont)
         
         var index = 0
-        let formatter = DateFormatter(withFormat: "", locale: "UCT")
-        let chartPoints = walletData.earning_history.map { (credit: MphRecentCredit) -> ChartPoint in
-            print(credit.date)
-            //let date = formatter.date(from: credit.date)
+        let formatter = DateFormatter(withFormat: "yyyy-MM-dd", locale: "UCT")
+        let shortFormatter = DateFormatter(withFormat: "M/dd", locale: "UCT")
+        let chartPoints = walletData.earning_history.reversed().map { (credit: MphRecentCredit) -> ChartPoint in
             index += 1
-            return ChartPoint(x: ChartAxisValueInt(index), y: ChartAxisValueDouble(credit.amount))
+            
+            if let date = formatter.date(from: credit.date) {
+                return ChartPoint(x: ChartAxisValueString(shortFormatter.string(from: date), order: index), y: ChartAxisValueDouble(credit.amount*conversionData.ltc.usd!))
+            }
+            return ChartPoint(x: ChartAxisValueString("N/A", order: index), y: ChartAxisValueDouble(credit.amount*conversionData.ltc.usd!))
         }
         
         //let chartPoints = [(2, 2), (3, 1), (5, 9), (6, 7), (8, 10), (9, 9), (10, 15), (13, 8), (15, 20), (16, 17)].map{ChartPoint(x: ChartAxisValueInt($0.0), y: ChartAxisValueInt($0.1))}
         
-        let xValues = ChartAxisValuesStaticGenerator.generateXAxisValuesWithChartPoints(chartPoints, minSegmentCount: 7, maxSegmentCount: 7, multiple: 2, axisValueGenerator: {ChartAxisValueDouble($0, labelSettings: labelSettings)}, addPaddingSegmentIfEdge: false)
-        let yValues = ChartAxisValuesStaticGenerator.generateYAxisValuesWithChartPoints(chartPoints, minSegmentCount: 10, maxSegmentCount: 20, multiple: 2, axisValueGenerator: {ChartAxisValueDouble($0, labelSettings: labelSettings)}, addPaddingSegmentIfEdge: true)
+        let xValues = ChartAxisValuesStaticGenerator.generateXAxisValuesWithChartPoints(chartPoints, minSegmentCount: 8, maxSegmentCount: 8, multiple: 2, axisValueGenerator: {ChartAxisValueDouble($0, labelSettings: labelSettings)}, addPaddingSegmentIfEdge: false)
+        let yValues = ChartAxisValuesStaticGenerator.generateYAxisValuesWithChartPoints(chartPoints, minSegmentCount: 10, maxSegmentCount: 500, multiple: 1, axisValueGenerator: {ChartAxisValueDouble($0, labelSettings: labelSettings)}, addPaddingSegmentIfEdge: true)
         
         let xModel = ChartAxisModel(axisValues: xValues)
         let yModel = ChartAxisModel(axisValues: yValues, axisTitleLabel: ChartAxisLabel(text: "Value in "+currency.description(), settings: labelSettings.defaultVertical()))
@@ -60,7 +63,7 @@ class MultiLineChartTableViewCell: PulsableTableViewCell {
         
         let showCoordsTextViewsGenerator = {(chartPointModel: ChartPointLayerModel, layer: ChartPointsLayer, chart: Chart) -> UIView? in
             let (chartPoint, screenLoc) = (chartPointModel.chartPoint, chartPointModel.screenLoc)
-            let text = chartPoint.description
+            let text = CurrencyFormattedNumber(for: chartPoint.y.scalar, in: currency).formattedNumber
             let font = ExamplesDefaults.labelFont
             let x = min(screenLoc.x + 5, chart.bounds.width - text.width(font) - 5)
             let view = UIView(frame: CGRect(x: x, y: screenLoc.y - labelHeight, width: labelWidth, height: labelHeight))
