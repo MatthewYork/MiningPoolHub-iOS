@@ -26,8 +26,11 @@ class MultiLineChartTableViewCell: PulsableTableViewCell {
         // Configure the view for the selected state
     }
     
-    func setContent(walletData: MphsWalletData, currency: MphsCurrency, conversionData: MphsConversionData) {
+    func setContent(walletData: MphsWalletData, currency: MphsCurrency, conversionData: MphsConversionData, autoExchange: MphDomain) {
+        self.chart?.clearView()
         let labelSettings = ChartLabelSettings(font: ExamplesDefaults.labelFont)
+        let conversion = conversionData.conversion(for: autoExchange)
+        let exchangeValue = conversion.conversion(for: currency) ?? 0.0
         
         var index = 0
         let formatter = DateFormatter(withFormat: "yyyy-MM-dd", locale: "UCT")
@@ -36,9 +39,9 @@ class MultiLineChartTableViewCell: PulsableTableViewCell {
             index += 1
             
             if let date = formatter.date(from: credit.date) {
-                return ChartPoint(x: ChartAxisValueString(shortFormatter.string(from: date), order: index), y: ChartAxisValueDouble(credit.amount*conversionData.ltc.usd!))
+                return ChartPoint(x: ChartAxisValueString(shortFormatter.string(from: date), order: index), y: ChartAxisValueDouble(credit.amount*exchangeValue))
             }
-            return ChartPoint(x: ChartAxisValueString("N/A", order: index), y: ChartAxisValueDouble(credit.amount*conversionData.ltc.usd!))
+            return ChartPoint(x: ChartAxisValueString("N/A", order: index), y: ChartAxisValueDouble(credit.amount*exchangeValue))
         }
         
         //let chartPoints = [(2, 2), (3, 1), (5, 9), (6, 7), (8, 10), (9, 9), (10, 15), (13, 8), (15, 20), (16, 17)].map{ChartPoint(x: ChartAxisValueInt($0.0), y: ChartAxisValueInt($0.1))}
@@ -125,7 +128,7 @@ class MultiLineChartTableViewCell: PulsableTableViewCell {
         let guidelinesLayer = ChartGuideLinesDottedLayer(xAxisLayer: xAxisLayer, yAxisLayer: yAxisLayer, settings: settings)
         
         
-        let chart = Chart(
+        self.chart = Chart(
             frame: chartFrame,
             innerFrame: innerFrame,
             settings: chartSettings,
@@ -142,7 +145,7 @@ class MultiLineChartTableViewCell: PulsableTableViewCell {
                 ]
         )
         
-        self.containerView.addSubview(chart.view)
+        self.containerView.addSubview(chart!.view)
     }
 
     func chartFrame(_ containerBounds: CGRect) -> CGRect {

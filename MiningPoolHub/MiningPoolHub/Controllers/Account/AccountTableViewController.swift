@@ -157,14 +157,12 @@ extension AccountTableViewController {
         guard let autoExchangeString: String = defaultsManager.get(scope: "accountSettings", key: "autoExchange") else {return cell}
         guard let autoExchange = MphDomain(string: autoExchangeString) else { return cell }
         
-        guard let conversionData = userResponse?.conversion_data else { return cell }
-        
         if let walletData = userResponse?.wallet_data.first(where: { (data: MphsWalletData) -> Bool in
             return data.coin == autoExchange.description()
         }) {
-            cell.resetPulse()
             cell.containerView.isHidden = false
-            cell.setContent(walletData: walletData, currency: currency, conversionData: conversionData)
+            guard let conversionData = userResponse?.conversion_data else { return cell }
+            cell.setContent(walletData: walletData, currency: currency, conversionData: conversionData, autoExchange: autoExchange)
         }
         else {
             cell.resetPulse()
