@@ -71,6 +71,7 @@ class AccountSettingsViewController: UIViewController {
         let autoExchangeString = defaultsManager.get(scope: "accountSettings", key: "autoExchange") ?? "bitcoin"
         guard let autoExchange = MphDomain(string: autoExchangeString) else { return }
         
+        self.autoExchange = autoExchange
         autoExchangeButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.left
         autoExchangeButton.setTitle(autoExchange.description(), for: UIControlState.normal)
     }

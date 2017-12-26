@@ -44,6 +44,8 @@
 		F00D68951FEB1C72003C80C2 /* CurrencyFormattedNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00D68941FEB1C72003C80C2 /* CurrencyFormattedNumber.swift */; };
 		F04856471FF0DA3900DA0797 /* PoolInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04856451FF0DA3900DA0797 /* PoolInfoTableViewCell.swift */; };
 		F04856481FF0DA3900DA0797 /* PoolInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F04856461FF0DA3900DA0797 /* PoolInfoTableViewCell.xib */; };
+		F048564C1FF2D80700DA0797 /* PoolStatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F048564A1FF2D80700DA0797 /* PoolStatusTableViewCell.swift */; };
+		F048564D1FF2D80700DA0797 /* PoolStatusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F048564B1FF2D80700DA0797 /* PoolStatusTableViewCell.xib */; };
 		F0D1F6321FE8AFC400C346B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D1F6311FE8AFC400C346B4 /* AppDelegate.swift */; };
 		F0D1F6391FE8AFC400C346B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0D1F6381FE8AFC400C346B4 /* Assets.xcassets */; };
 		F0D1F63C1FE8AFC400C346B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0D1F63A1FE8AFC400C346B4 /* LaunchScreen.storyboard */; };
@@ -117,6 +119,8 @@
 		F00D68941FEB1C72003C80C2 /* CurrencyFormattedNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormattedNumber.swift; sourceTree = "<group>"; };
 		F04856451FF0DA3900DA0797 /* PoolInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolInfoTableViewCell.swift; sourceTree = "<group>"; };
 		F04856461FF0DA3900DA0797 /* PoolInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PoolInfoTableViewCell.xib; sourceTree = "<group>"; };
+		F048564A1FF2D80700DA0797 /* PoolStatusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolStatusTableViewCell.swift; sourceTree = "<group>"; };
+		F048564B1FF2D80700DA0797 /* PoolStatusTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PoolStatusTableViewCell.xib; sourceTree = "<group>"; };
 		F0D1F62E1FE8AFC400C346B4 /* MiningPoolHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiningPoolHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0D1F6311FE8AFC400C346B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0D1F6381FE8AFC400C346B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -356,7 +360,8 @@
 		F00D685B1FE9FE9F003C80C2 /* UITableviewCells */ = {
 			isa = PBXGroup;
 			children = (
-				F04856441FF0DA2300DA0797 /* Pool */,
+				F04856491FF2D7FA00DA0797 /* PoolStatus */,
+				F04856441FF0DA2300DA0797 /* PoolInfo */,
 				F0E57C671FEF77BC00C6298F /* MultiLineChart */,
 				F004B21F1FEEFCD20017ECFF /* Transaction */,
 				F004B1DF1FEB70A50017ECFF /* WorkerCollection */,
@@ -454,13 +459,22 @@
 			path = Estimates;
 			sourceTree = "<group>";
 		};
-		F04856441FF0DA2300DA0797 /* Pool */ = {
+		F04856441FF0DA2300DA0797 /* PoolInfo */ = {
 			isa = PBXGroup;
 			children = (
 				F04856451FF0DA3900DA0797 /* PoolInfoTableViewCell.swift */,
 				F04856461FF0DA3900DA0797 /* PoolInfoTableViewCell.xib */,
 			);
-			path = Pool;
+			path = PoolInfo;
+			sourceTree = "<group>";
+		};
+		F04856491FF2D7FA00DA0797 /* PoolStatus */ = {
+			isa = PBXGroup;
+			children = (
+				F048564A1FF2D80700DA0797 /* PoolStatusTableViewCell.swift */,
+				F048564B1FF2D80700DA0797 /* PoolStatusTableViewCell.xib */,
+			);
+			path = PoolStatus;
 			sourceTree = "<group>";
 		};
 		F0D1F6251FE8AFC400C346B4 = {
@@ -655,6 +669,7 @@
 				F0D1F6391FE8AFC400C346B4 /* Assets.xcassets in Resources */,
 				F0E57C661FEF3D0E00C6298F /* TransactionTableViewCell.xib in Resources */,
 				F004B1E71FEB71D50017ECFF /* WorkerCollectionViewCell.xib in Resources */,
+				F048564D1FF2D80700DA0797 /* PoolStatusTableViewCell.xib in Resources */,
 				F00D68931FEB0849003C80C2 /* EstimatesTableViewCell.xib in Resources */,
 				F0E57C6B1FEF77D400C6298F /* MultiLineChartTableViewCell.xib in Resources */,
 				F004B2151FEEF09C0017ECFF /* AuthenticateViewController.xib in Resources */,
@@ -865,6 +880,7 @@
 				F00D68761FEA31EB003C80C2 /* UserBalancesTableViewController.swift in Sources */,
 				F00D687A1FEA3596003C80C2 /* BalanceTableViewCell.swift in Sources */,
 				F00D68731FEA148C003C80C2 /* Normalization.swift in Sources */,
+				F048564C1FF2D80700DA0797 /* PoolStatusTableViewCell.swift in Sources */,
 				F004B1EB1FEB782C0017ECFF /* PulsableCollectionViewCell.swift in Sources */,
 				F00D688E1FEAECC8003C80C2 /* AccountTableViewController.swift in Sources */,
 			);

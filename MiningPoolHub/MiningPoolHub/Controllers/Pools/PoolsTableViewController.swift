@@ -14,6 +14,7 @@ class PoolsTableViewController: UITableViewController {
     let provider: MphWebProvider
     let defaultsManager: UserDefaultsManager
     var poolInfoResponse: MphPoolInfoResponse?
+    var poolStatusResponse: MphPoolStatusResponse?
     var transactionsResponse: MphUserTransactionsResponse?
     var domain: MphDomain = MphDomain.bitcoin
     
@@ -49,6 +50,7 @@ class PoolsTableViewController: UITableViewController {
     func registerCells() {
         tableView.register(UINib(nibName: "TransactionTableViewCell", bundle: nil), forCellReuseIdentifier: "TransactionTableViewCell")
         tableView.register(UINib(nibName: "PoolInfoTableViewCell", bundle: nil), forCellReuseIdentifier: "PoolInfoTableViewCell")
+        tableView.register(UINib(nibName: "PoolStatusTableViewCell", bundle: nil), forCellReuseIdentifier: "PoolStatusTableViewCell")
     }
     
     func setupTable() {
@@ -77,20 +79,20 @@ class PoolsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0: return 1
-        case 1: return transactionsResponse?.transactions.data?.transactions.count ?? 5
+        case 0,1: return 1
+        case 2: return transactionsResponse?.transactions.data?.transactions.count ?? 5
         default: return 0
         }
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         switch section {
-        case 1:
+        case 2:
             let header = LeftImageSectionHeader.fromNib()
             header.setContent(image: UIImage(named: "exchange-pdf"), title: "Transactions")
             return header
@@ -100,7 +102,7 @@ class PoolsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch section {
-        case 1: return UITableViewAutomaticDimension
+        case 2: return UITableViewAutomaticDimension
         default: return 0.001
         }
     }
@@ -108,7 +110,8 @@ class PoolsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0: return poolInfoCell(indexPath: indexPath)
-        case 1: return transactionCell(indexPath: indexPath)
+        case 1: return poolStatusCell(indexPath: indexPath)
+        case 2: return transactionCell(indexPath: indexPath)
         default:
             return tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
         }
@@ -120,6 +123,21 @@ class PoolsTableViewController: UITableViewController {
         if let poolInfo = poolInfoResponse?.info.data {
             cell.containerView.isHidden = false
             cell.setContent(poolDetails: poolInfo)
+        }
+        else {
+            cell.resetPulse()
+            cell.animatePulseView()
+            cell.containerView.isHidden = true
+        }
+        return cell
+    }
+    
+    func poolStatusCell(indexPath: IndexPath) -> PoolStatusTableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PoolStatusTableViewCell", for: indexPath) as! PoolStatusTableViewCell
+        
+        if let poolStatus = poolStatusResponse?.status.data {
+            cell.containerView.isHidden = false
+            cell.setContent(poolDetails: poolStatus)
         }
         else {
             cell.resetPulse()
@@ -193,12 +211,22 @@ extension PoolsTableViewController {
             //handle error
         }
         
+        //Pool info
         let _ = provider.getPoolInfo(completion: { (response: MphPoolInfoResponse) in
             self.poolInfoResponse = response
             self.tableView.reloadData()
             self.tableView.refreshControl?.endRefreshing()
         }) { (error: Error) in
             //handle error
+        }
+        
+        //Pool status
+        let _ = provider.getPoolStatus(completion: { (response: MphPoolStatusResponse) in
+            self.poolStatusResponse = response
+            self.tableView.reloadData()
+            self.tableView.refreshControl?.endRefreshing()
+        }) { (error: Error) in
+            
         }
     }
 }
