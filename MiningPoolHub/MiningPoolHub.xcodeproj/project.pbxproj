@@ -46,6 +46,8 @@
 		F04856481FF0DA3900DA0797 /* PoolInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F04856461FF0DA3900DA0797 /* PoolInfoTableViewCell.xib */; };
 		F048564C1FF2D80700DA0797 /* PoolStatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F048564A1FF2D80700DA0797 /* PoolStatusTableViewCell.swift */; };
 		F048564D1FF2D80700DA0797 /* PoolStatusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F048564B1FF2D80700DA0797 /* PoolStatusTableViewCell.xib */; };
+		F04856511FF439F600DA0797 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F048564F1FF439F600DA0797 /* AboutViewController.swift */; };
+		F04856521FF439F600DA0797 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F04856501FF439F600DA0797 /* AboutViewController.xib */; };
 		F0D1F6321FE8AFC400C346B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D1F6311FE8AFC400C346B4 /* AppDelegate.swift */; };
 		F0D1F6391FE8AFC400C346B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0D1F6381FE8AFC400C346B4 /* Assets.xcassets */; };
 		F0D1F63C1FE8AFC400C346B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0D1F63A1FE8AFC400C346B4 /* LaunchScreen.storyboard */; };
@@ -121,6 +123,8 @@
 		F04856461FF0DA3900DA0797 /* PoolInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PoolInfoTableViewCell.xib; sourceTree = "<group>"; };
 		F048564A1FF2D80700DA0797 /* PoolStatusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolStatusTableViewCell.swift; sourceTree = "<group>"; };
 		F048564B1FF2D80700DA0797 /* PoolStatusTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PoolStatusTableViewCell.xib; sourceTree = "<group>"; };
+		F048564F1FF439F600DA0797 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		F04856501FF439F600DA0797 /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
 		F0D1F62E1FE8AFC400C346B4 /* MiningPoolHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiningPoolHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0D1F6311FE8AFC400C346B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0D1F6381FE8AFC400C346B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -328,6 +332,7 @@
 		F00D68581FE9FE82003C80C2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F048564E1FF439E600DA0797 /* About */,
 				F004B2241FEF10FB0017ECFF /* Pools */,
 				F004B2111FEEF08A0017ECFF /* Authenticate */,
 				F00D688C1FEAECA9003C80C2 /* Account */,
@@ -475,6 +480,15 @@
 				F048564B1FF2D80700DA0797 /* PoolStatusTableViewCell.xib */,
 			);
 			path = PoolStatus;
+			sourceTree = "<group>";
+		};
+		F048564E1FF439E600DA0797 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				F048564F1FF439F600DA0797 /* AboutViewController.swift */,
+				F04856501FF439F600DA0797 /* AboutViewController.xib */,
+			);
+			path = About;
 			sourceTree = "<group>";
 		};
 		F0D1F6251FE8AFC400C346B4 = {
@@ -660,6 +674,7 @@
 			files = (
 				F004B1E31FEB70C30017ECFF /* WorkerCollectionTableViewCell.xib in Resources */,
 				F04856481FF0DA3900DA0797 /* PoolInfoTableViewCell.xib in Resources */,
+				F04856521FF439F600DA0797 /* AboutViewController.xib in Resources */,
 				F00D68671FEA03EF003C80C2 /* ProfitStatisticsTableViewCell.xib in Resources */,
 				F0D1F63C1FE8AFC400C346B4 /* LaunchScreen.storyboard in Resources */,
 				F00D686E1FEA11DC003C80C2 /* ProfitStatisticsViewController.xib in Resources */,
@@ -881,6 +896,7 @@
 				F00D687A1FEA3596003C80C2 /* BalanceTableViewCell.swift in Sources */,
 				F00D68731FEA148C003C80C2 /* Normalization.swift in Sources */,
 				F048564C1FF2D80700DA0797 /* PoolStatusTableViewCell.swift in Sources */,
+				F04856511FF439F600DA0797 /* AboutViewController.swift in Sources */,
 				F004B1EB1FEB782C0017ECFF /* PulsableCollectionViewCell.swift in Sources */,
 				F00D688E1FEAECC8003C80C2 /* AccountTableViewController.swift in Sources */,
 			);

@@ -69,7 +69,8 @@ extension AppDelegate {
             MphNavigationController(rootViewController: ProfitStatisticsViewController(provider: provider, defaultsManager: defaultsManager)),
             MphNavigationController(rootViewController: UserBalancesTableViewController(provider: provider, defaultsManager: defaultsManager)),
             MphNavigationController(rootViewController: PoolsTableViewController(provider: poolProvider, defaultsManager: defaultsManager)),
-            MphNavigationController(rootViewController: AccountTableViewController(provider: provider, defaultsManager: defaultsManager))
+            MphNavigationController(rootViewController: AccountTableViewController(provider: provider, defaultsManager: defaultsManager)),
+            MphNavigationController(rootViewController: AboutViewController())
         ]
         
         //Set style

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AboutViewController" customModule="MiningPoolHub" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iKE-j9-y0h">
+                    <rect key="frame" x="67" y="580.5" width="240" height="66.5"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L1P-3y-J0k">
+                            <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="L7y-w2-ERU"/>
+                                <constraint firstAttribute="width" constant="44" id="ugN-2a-v9M"/>
+                            </constraints>
+                            <state key="normal" image="btc-color"/>
+                            <connections>
+                                <action selector="didSelectDonateBtc" destination="-1" eventType="touchUpInside" id="UHH-OW-zKi"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gbq-Wu-4im">
+                            <rect key="frame" x="98" y="0.0" width="44" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="R8p-NH-ope"/>
+                                <constraint firstAttribute="width" constant="44" id="Wti-TG-ZWh"/>
+                            </constraints>
+                            <state key="normal" image="ltc-color"/>
+                            <connections>
+                                <action selector="didSelectDonateLtc" destination="-1" eventType="touchUpInside" id="si4-QR-Qdr"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obS-j5-sfc">
+                            <rect key="frame" x="196" y="0.0" width="44" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="3Ek-K5-xAN"/>
+                                <constraint firstAttribute="width" constant="44" id="RWg-7c-HAL"/>
+                            </constraints>
+                            <state key="normal" image="eth-color"/>
+                            <connections>
+                                <action selector="didSelectDonateEth" destination="-1" eventType="touchUpInside" id="NjB-xu-rRZ"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DJ0-OO-WDP">
+                            <rect key="frame" x="9.5" y="52" width="25" height="14.5"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LTC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LxQ-0P-6uN">
+                            <rect key="frame" x="108.5" y="52" width="23" height="14.5"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ETH" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u63-02-qNH">
+                            <rect key="frame" x="205.5" y="52" width="25" height="14.5"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="LxQ-0P-6uN" firstAttribute="centerX" secondItem="Gbq-Wu-4im" secondAttribute="centerX" id="ApP-RA-4QI"/>
+                        <constraint firstAttribute="bottom" secondItem="u63-02-qNH" secondAttribute="bottom" id="BTv-Al-PQj"/>
+                        <constraint firstItem="u63-02-qNH" firstAttribute="centerX" secondItem="obS-j5-sfc" secondAttribute="centerX" id="F7h-Aj-ECs"/>
+                        <constraint firstAttribute="trailing" secondItem="obS-j5-sfc" secondAttribute="trailing" id="L1w-Yn-AgC"/>
+                        <constraint firstItem="DJ0-OO-WDP" firstAttribute="top" secondItem="L1P-3y-J0k" secondAttribute="bottom" constant="8" id="PJN-eb-vq5"/>
+                        <constraint firstItem="LxQ-0P-6uN" firstAttribute="top" secondItem="Gbq-Wu-4im" secondAttribute="bottom" constant="8" id="PqR-85-Xha"/>
+                        <constraint firstItem="u63-02-qNH" firstAttribute="top" secondItem="obS-j5-sfc" secondAttribute="bottom" constant="8" id="QXx-W1-FX7"/>
+                        <constraint firstAttribute="bottom" secondItem="LxQ-0P-6uN" secondAttribute="bottom" id="XsL-rP-gqY"/>
+                        <constraint firstItem="L1P-3y-J0k" firstAttribute="top" secondItem="iKE-j9-y0h" secondAttribute="top" id="ZJi-H6-ay1"/>
+                        <constraint firstItem="Gbq-Wu-4im" firstAttribute="centerX" secondItem="iKE-j9-y0h" secondAttribute="centerX" id="j7d-lT-yuj"/>
+                        <constraint firstItem="L1P-3y-J0k" firstAttribute="leading" secondItem="iKE-j9-y0h" secondAttribute="leading" id="kxT-TO-nsP"/>
+                        <constraint firstItem="obS-j5-sfc" firstAttribute="top" secondItem="iKE-j9-y0h" secondAttribute="top" id="smI-fq-G1E"/>
+                        <constraint firstAttribute="width" constant="240" id="ull-2M-Qfw"/>
+                        <constraint firstAttribute="bottom" secondItem="DJ0-OO-WDP" secondAttribute="bottom" id="y14-cA-FwF"/>
+                        <constraint firstItem="DJ0-OO-WDP" firstAttribute="centerX" secondItem="L1P-3y-J0k" secondAttribute="centerX" id="yWd-48-XXk"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAP A COIN TO DONATE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zXW-nf-EzM">
+                    <rect key="frame" x="115" y="526.5" width="144.5" height="14.5"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(address will be copied to clipboard)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aS5-dx-c0U">
+                    <rect key="frame" x="84" y="542.5" width="206.5" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kFc-ma-iBJ">
+                    <rect key="frame" x="136" y="28" width="102" height="102"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mph-logo" translatesAutoresizingMaskIntoConstraints="NO" id="vgk-jW-xjZ">
+                            <rect key="frame" x="1" y="1" width="100" height="100"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="100" id="Bq2-g8-dBR"/>
+                                <constraint firstAttribute="width" constant="100" id="YPe-YC-RNp"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.93999999999999995" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="vgk-jW-xjZ" firstAttribute="top" secondItem="kFc-ma-iBJ" secondAttribute="top" constant="1" id="VeE-3k-drB"/>
+                        <constraint firstItem="vgk-jW-xjZ" firstAttribute="centerX" secondItem="kFc-ma-iBJ" secondAttribute="centerX" id="YEA-pO-nYw"/>
+                        <constraint firstItem="vgk-jW-xjZ" firstAttribute="leading" secondItem="kFc-ma-iBJ" secondAttribute="leading" constant="1" id="cyx-YH-lab"/>
+                        <constraint firstAttribute="trailing" secondItem="vgk-jW-xjZ" secondAttribute="trailing" constant="1" id="dB5-cN-fLw"/>
+                        <constraint firstAttribute="bottom" secondItem="vgk-jW-xjZ" secondAttribute="bottom" constant="1" id="hGf-sG-dgK"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="miningpoolhub.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sDV-1w-deI">
+                    <rect key="frame" x="75.5" y="138" width="223.5" height="29"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="miningpoolhubstats.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="20J-G1-Yoc">
+                    <rect key="frame" x="93" y="199.5" width="188.5" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="W/ SPECIAL THANKS TO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Wi-JS-TeG">
+                    <rect key="frame" x="114" y="185" width="146.5" height="14.5"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="matt@apptoo.io" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rwp-Vc-bZv">
+                    <rect key="frame" x="126" y="278" width="122.5" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="APP BUILT BY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JTe-rg-5fS">
+                    <rect key="frame" x="146" y="263" width="83" height="14.5"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="aS5-dx-c0U" firstAttribute="top" secondItem="zXW-nf-EzM" secondAttribute="bottom" constant="2" id="7zD-dr-kSX"/>
+                <constraint firstItem="sDV-1w-deI" firstAttribute="top" secondItem="kFc-ma-iBJ" secondAttribute="bottom" constant="8" id="9CC-Xl-k9H"/>
+                <constraint firstItem="JTe-rg-5fS" firstAttribute="centerX" secondItem="20J-G1-Yoc" secondAttribute="centerX" id="BLP-KK-2xx"/>
+                <constraint firstItem="5Wi-JS-TeG" firstAttribute="centerX" secondItem="sDV-1w-deI" secondAttribute="centerX" id="BZd-xh-lfw"/>
+                <constraint firstItem="JTe-rg-5fS" firstAttribute="top" secondItem="20J-G1-Yoc" secondAttribute="bottom" constant="42.5" id="CGX-x1-qFq"/>
+                <constraint firstItem="zXW-nf-EzM" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="PQe-X1-6mT"/>
+                <constraint firstItem="5Wi-JS-TeG" firstAttribute="top" secondItem="sDV-1w-deI" secondAttribute="bottom" constant="18" id="UkQ-oQ-he5"/>
+                <constraint firstItem="iKE-j9-y0h" firstAttribute="top" secondItem="aS5-dx-c0U" secondAttribute="bottom" constant="23.5" id="Vx0-ZA-0E1"/>
+                <constraint firstItem="rwp-Vc-bZv" firstAttribute="centerX" secondItem="JTe-rg-5fS" secondAttribute="centerX" id="X5L-z8-YAC"/>
+                <constraint firstItem="kFc-ma-iBJ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ZnY-UY-YYM"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="iKE-j9-y0h" secondAttribute="bottom" constant="20" id="j6C-uR-L5p"/>
+                <constraint firstItem="sDV-1w-deI" firstAttribute="centerX" secondItem="kFc-ma-iBJ" secondAttribute="centerX" id="ke0-qG-XYs"/>
+                <constraint firstItem="kFc-ma-iBJ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="n9M-Om-mLH"/>
+                <constraint firstItem="20J-G1-Yoc" firstAttribute="top" secondItem="5Wi-JS-TeG" secondAttribute="bottom" id="qO4-JA-NQF"/>
+                <constraint firstItem="rwp-Vc-bZv" firstAttribute="top" secondItem="JTe-rg-5fS" secondAttribute="bottom" id="sCK-qw-ODi"/>
+                <constraint firstItem="20J-G1-Yoc" firstAttribute="centerX" secondItem="5Wi-JS-TeG" secondAttribute="centerX" id="tJp-Lo-Ndw"/>
+                <constraint firstItem="aS5-dx-c0U" firstAttribute="centerX" secondItem="iKE-j9-y0h" secondAttribute="centerX" id="zCC-by-Tn8"/>
+                <constraint firstItem="iKE-j9-y0h" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="zkS-N1-bh0"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="33.5" y="59.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="btc-color" width="256" height="256"/>
+        <image name="eth-color" width="128" height="128"/>
+        <image name="ltc-color" width="256" height="256"/>
+        <image name="mph-logo" width="1024" height="1024"/>
+    </resources>
+</document>
