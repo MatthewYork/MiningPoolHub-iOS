@@ -34,20 +34,27 @@ class MultiLineChartTableViewCell: PulsableTableViewCell {
         
         var index = 0
         let formatter = DateFormatter(withFormat: "yyyy-MM-dd", locale: "UCT")
-        let shortFormatter = DateFormatter(withFormat: "M/dd", locale: "UCT")
+        let shortFormatter = DateFormatter(withFormat: "dd", locale: "UCT")
         let chartPoints = walletData.earning_history.reversed().map { (credit: MphRecentCredit) -> ChartPoint in
             index += 1
             
             if let date = formatter.date(from: credit.date) {
-                return ChartPoint(x: ChartAxisValueString(shortFormatter.string(from: date), order: index), y: ChartAxisValueDouble(credit.amount*exchangeValue))
+                return ChartPoint(x: ChartAxisValueString(shortFormatter.string(from: date), order: index, labelSettings: ChartLabelSettings(font: ExamplesDefaults.labelFont)), y: ChartAxisValueDouble(credit.amount*exchangeValue))
             }
             return ChartPoint(x: ChartAxisValueString("N/A", order: index), y: ChartAxisValueDouble(credit.amount*exchangeValue))
         }
         
-        //let chartPoints = [(2, 2), (3, 1), (5, 9), (6, 7), (8, 10), (9, 9), (10, 15), (13, 8), (15, 20), (16, 17)].map{ChartPoint(x: ChartAxisValueInt($0.0), y: ChartAxisValueInt($0.1))}
+        //Add additional xValues for graph padding
+        var xValues = chartPoints.map {$0.x}
+        index+=1; xValues.append(ChartAxisValueString("", order: index, labelSettings: ChartLabelSettings(font: ExamplesDefaults.labelFont)))
+        index+=1; xValues.append(ChartAxisValueString("", order: index, labelSettings: ChartLabelSettings(font: ExamplesDefaults.labelFont)))
         
-        let xValues = ChartAxisValuesStaticGenerator.generateXAxisValuesWithChartPoints(chartPoints, minSegmentCount: 8, maxSegmentCount: 8, multiple: 2, axisValueGenerator: {ChartAxisValueDouble($0, labelSettings: labelSettings)}, addPaddingSegmentIfEdge: false)
-        let yValues = ChartAxisValuesStaticGenerator.generateYAxisValuesWithChartPoints(chartPoints, minSegmentCount: 10, maxSegmentCount: 500, multiple: 1, axisValueGenerator: {ChartAxisValueDouble($0, labelSettings: labelSettings)}, addPaddingSegmentIfEdge: true)
+        //let xValues = ChartAxisValuesStaticGenerator.generateXAxisValuesWithChartPoints(chartPoints, minSegmentCount: 12, maxSegmentCount: 12, multiple: 1, axisValueGenerator: {ChartAxisValueDouble($0, labelSettings: labelSettings)}, addPaddingSegmentIfEdge: false)
+        let maxYCredit = walletData.earning_history.max { (c1, c2) -> Bool in
+            return c1.amount < c2.amount
+        }
+        let minYAmountValue = (maxYCredit?.amount ?? 10)*exchangeValue*1.25
+        let yValues = ChartAxisValuesStaticGenerator.generateYAxisValuesWithChartPoints(chartPoints, minSegmentCount: minYAmountValue, maxSegmentCount: 500, multiple: 1, axisValueGenerator: {ChartAxisValueDouble($0, labelSettings: labelSettings)}, addPaddingSegmentIfEdge: true)
         
         let xModel = ChartAxisModel(axisValues: xValues)
         let yModel = ChartAxisModel(axisValues: yValues, axisTitleLabel: ChartAxisLabel(text: "Value in "+currency.description(), settings: labelSettings.defaultVertical()))
