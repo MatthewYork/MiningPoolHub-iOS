@@ -16,7 +16,7 @@ class PulsableCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        pulseView.isUserInteractionEnabled = false
     }
     
     func resetPulse() {

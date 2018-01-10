@@ -17,7 +17,7 @@ class PulsableTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        pulseView.isUserInteractionEnabled = false
     }
 
     func resetPulse() {

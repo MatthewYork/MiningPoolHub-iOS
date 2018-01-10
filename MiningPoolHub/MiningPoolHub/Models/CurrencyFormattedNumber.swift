@@ -21,7 +21,7 @@ class CurrencyFormattedNumber {
         //Detect crypto format
         var format = ""
         switch currency {
-        case .btc, .ltc, .eth, .xmr : format = "%.7f"
+        case .btc, .ltc, .eth, .xmr : format = "%.8f"
         default: format = "%.2f"
         }
         

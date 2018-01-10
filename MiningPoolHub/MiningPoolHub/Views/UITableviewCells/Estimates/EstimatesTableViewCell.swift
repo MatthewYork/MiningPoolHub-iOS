@@ -27,12 +27,13 @@ class EstimatesTableViewCell: PulsableTableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setContent(estimates: MphsEstimatesData, currency: MphsCurrency) {
-        last24HoursLabel.text = CurrencyFormattedNumber(for: estimates.last_24_hours, in: currency).formattedNumber
-        hourlyLabel.text = CurrencyFormattedNumber(for: estimates.hourly, in: currency).formattedNumber
-        dailyLabel.text = CurrencyFormattedNumber(for: estimates.daily, in: currency).formattedNumber
-        weeklyLabel.text = CurrencyFormattedNumber(for: estimates.weekly, in: currency).formattedNumber
-        monthlyLabel.text = CurrencyFormattedNumber(for: estimates.monthly, in: currency).formattedNumber
-        yearlyLabel.text = CurrencyFormattedNumber(for: estimates.yearly, in: currency).formattedNumber
+    func setContent(estimates: MphsEstimatesData, currency: MphsCurrency, autoExchange: MphDomain) {
+        let divisor = autoExchange == .none ? 1.0 : 2.0 
+        last24HoursLabel.text = CurrencyFormattedNumber(for: estimates.last_24_hours/divisor, in: currency).formattedNumber
+        hourlyLabel.text = CurrencyFormattedNumber(for: estimates.hourly/divisor, in: currency).formattedNumber
+        dailyLabel.text = CurrencyFormattedNumber(for: estimates.daily/divisor, in: currency).formattedNumber
+        weeklyLabel.text = CurrencyFormattedNumber(for: estimates.weekly/divisor, in: currency).formattedNumber
+        monthlyLabel.text = CurrencyFormattedNumber(for: estimates.monthly/divisor, in: currency).formattedNumber
+        yearlyLabel.text = CurrencyFormattedNumber(for: estimates.yearly/divisor, in: currency).formattedNumber
     }
 }

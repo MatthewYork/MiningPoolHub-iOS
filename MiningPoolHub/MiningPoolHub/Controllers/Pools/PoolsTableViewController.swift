@@ -72,7 +72,7 @@ class PoolsTableViewController: UITableViewController {
     
     func addBarButtons() {
         //Add right bar button
-        let leftBarButton = UIBarButtonItem(title: domain.description(), style: .plain, target: self, action: #selector(didSelectDomain))
+        let leftBarButton = UIBarButtonItem(title: domain.description() == "" ? "none" : domain.description(), style: .plain, target: self, action: #selector(didSelectDomain))
         navigationItem.leftBarButtonItem = leftBarButton
     }
 
@@ -175,6 +175,7 @@ extension PoolsTableViewController {
         //Add enum values
         var rawValue = 0
         while let domain = MphDomain(rawValue: rawValue) {
+            if domain == .none { rawValue += 1; continue; }
             alert.addAction(UIAlertAction(title: domain.description(), style: UIAlertActionStyle.default, handler: { action in
                 
                 //Gather new criteria
@@ -199,6 +200,7 @@ extension PoolsTableViewController {
     @objc func loadData() {
         transactionsResponse = nil
         poolInfoResponse = nil
+        poolStatusResponse = nil
         tableView.reloadData()
         
         //Get transactions

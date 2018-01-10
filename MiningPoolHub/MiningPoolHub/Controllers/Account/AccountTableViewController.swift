@@ -138,7 +138,13 @@ extension AccountTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        switch section {
+        case 0:
+            guard let autoExchangeString: String = defaultsManager.get(scope: "accountSettings", key: "autoExchange") else {return 0}
+            guard let autoExchange = MphDomain(string: autoExchangeString) else { return 0 }
+            return autoExchange == .none ? 0 : 1
+        default: return 1
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -175,9 +181,12 @@ extension AccountTableViewController {
     func estimatesCell(indexPath: IndexPath) -> EstimatesTableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EstimatesTableViewCell", for: indexPath) as! EstimatesTableViewCell
         
+        guard let autoExchangeString: String = defaultsManager.get(scope: "accountSettings", key: "autoExchange") else {return cell}
+        guard let autoExchange = MphDomain(string: autoExchangeString) else { return cell }
+        
         if let estimates = userResponse?.estimates_data {
             cell.containerView.isHidden = false
-            cell.setContent(estimates: estimates, currency: currency)
+            cell.setContent(estimates: estimates, currency: currency, autoExchange: autoExchange)
         }
         else {
             cell.resetPulse()

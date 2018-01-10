@@ -73,7 +73,7 @@ class AccountSettingsViewController: UIViewController {
         
         self.autoExchange = autoExchange
         autoExchangeButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.left
-        autoExchangeButton.setTitle(autoExchange.description(), for: UIControlState.normal)
+        autoExchangeButton.setTitle(autoExchange.description() == "" ? "none" : autoExchange.description(), for: UIControlState.normal)
     }
 
     func addBarButtons() {
@@ -106,17 +106,15 @@ extension AccountSettingsViewController {
         //Add enum values
         var rawValue = 0
         while let domain = MphDomain(rawValue: rawValue) {
-            if domain.description() == "" { rawValue += 1; continue }
-            
-            alert.addAction(UIAlertAction(title: domain.description(), style: UIAlertActionStyle.default, handler: { action in
+            alert.addAction(UIAlertAction(title: domain != .none ? domain.description() : "none", style: UIAlertActionStyle.default, handler: { action in
                 
                 //Gather new criteria
                 guard let actionTitle = action.title else { return }
-                guard let newDomain = MphDomain(string: actionTitle) else { return }
+                guard let newDomain = MphDomain(string: actionTitle == "none" ? "" : actionTitle) else { return }
                 
                 //Reload on new criteria
                 self.autoExchange = newDomain
-                self.autoExchangeButton.setTitle(actionTitle, for: UIControlState.normal)
+                self.autoExchangeButton.setTitle(actionTitle != "" ? actionTitle : "none", for: UIControlState.normal)
             }) )
             rawValue += 1
         }
