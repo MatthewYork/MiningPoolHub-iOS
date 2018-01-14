@@ -134,23 +134,25 @@ extension ProfitStatisticsViewController: UITableViewDataSource, UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch contentType {
+        case .auto: return profitCell(indexPath: indexPath, content: autoSwitchStatistics)
+        case .coin: return profitCell(indexPath: indexPath, content: miningStatistics)
+        }
+    }
+    
+    func profitCell<T>(indexPath: IndexPath, content: MphListResponse<T>?) -> ProfitStatisticsTableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProfitStatisticsTableViewCell", for: indexPath) as! ProfitStatisticsTableViewCell
         
-        if let response = autoSwitchStatistics?.response[indexPath.row] {
+        if let response = content?.response[indexPath.row] {
             cell.containerView.isHidden = false
-            
-            switch contentType {
-            case .auto:
-                cell.setSelected(content: autoSwitchStatistics?.response[indexPath.row], normalization: normalization)
-            case .coin:
-                cell.setSelected(content: miningStatistics?.response[indexPath.row], normalization: normalization)
-            }
+            cell.setSelected(content: response, normalization: normalization)
         }
         else {
             cell.resetPulse()
             cell.animatePulseView()
             cell.containerView.isHidden = true
         }
+        
         return cell
     }
 }
