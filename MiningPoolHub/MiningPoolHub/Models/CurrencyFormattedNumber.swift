@@ -30,7 +30,7 @@ class CurrencyFormattedNumber {
         //Create denotation for currency
         var denotation = ""; var before = true;
         switch currency {
-        case .usd: denotation = "$";
+        case .usd, .cad: denotation = "$"
         case .eur: denotation = "€"
         case .gbp: denotation = "£"
         case .btc: denotation = "BTC"; before = false
