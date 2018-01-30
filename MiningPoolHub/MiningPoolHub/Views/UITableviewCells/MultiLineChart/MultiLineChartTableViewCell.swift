@@ -53,7 +53,7 @@ class MultiLineChartTableViewCell: PulsableTableViewCell {
         let maxYCredit = walletData.earning_history.max { (c1, c2) -> Bool in
             return c1.amount < c2.amount
         }
-        let minYAmountValue = (maxYCredit?.amount ?? 10)*exchangeValue*1.25
+        let minYAmountValue = (maxYCredit?.amount ?? 10)*exchangeValue*0.1
         let yValues = ChartAxisValuesStaticGenerator.generateYAxisValuesWithChartPoints(chartPoints, minSegmentCount: minYAmountValue, maxSegmentCount: 500, multiple: 1, axisValueGenerator: {ChartAxisValueDouble($0, labelSettings: labelSettings)}, addPaddingSegmentIfEdge: true)
         
         let xModel = ChartAxisModel(axisValues: xValues)
